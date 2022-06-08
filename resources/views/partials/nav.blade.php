@@ -7,7 +7,7 @@
 
             <div style="display: flex;" class="social-media">
                <!-- <button class="framesummerbuton">FRAME LONDON </button>-->
-                <p style="font-size: 15px;" class="followus">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Takip Et' : 'Follow Us'}}</p>
+                <p style="font-size: 15px;" class="followus">{{__('follow-us')}}</p>
                 <ul class="sosyalmedyaclass" style="display: flex;list-style: none;">
 
                     <li> <a href="" target="_blank" rel="noreferrer"> <i
@@ -52,23 +52,23 @@
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
                         <a title="HOME" href="{{route('home')}}" class="nav-link" aria-current="page"
-                           data-text="HOME">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'ANASAYFA' : 'HOME'}}</a><i></i>
+                           data-text="HOME">{{ __('home') }}</a><i></i>
                     </li>
                     <li itemscope="itemscope"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
                         <a title="HOME" href="{{route('about')}}" class="nav-link" aria-current="page"
-                           data-text="HOME">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'HAKKIMIZDA' : 'ABOUT US'}}
+                           data-text="HOME">{{ __('about-us') }}
                         </a><i></i>
                     </li>
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
                         <a title="HOME" href="{{route('team')}}" class="nav-link" aria-current="page"
-                           data-text="HOME">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'EKİBİMİZ' : 'OUR TEAM'}}</a><i></i>
+                           data-text="HOME">{{ __('our-team') }}</a><i></i>
                     </li>
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-665 nav-item">
                         <a title="PROPERTIES" href="" class="nav-link"
-                           data-text="PROPERTIES">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'PORTFÖYLERİMİZ' : 'PROPERTIES'}}</a><i></i>
+                           data-text="PROPERTIES">{{ __('properties') }}</a><i></i>
                         <ul class="dropdown" role="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378 nav-item">
@@ -91,31 +91,31 @@
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-665 nav-item">
                         <a title="PROPERTIES" href="{{route('service')}}" class="nav-link"
-                           data-text="PROPERTIES">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'HİZMETLERİMİZ' : 'SERVICES'}}</a><i></i>
+                           data-text="PROPERTIES">{{ __('services') }}</a><i></i>
                         <ul class="dropdown" role="menu">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378 nav-item">
-                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'PROFESYONEL FOTOĞRAF ÇEKİMİ' : 'PROFESSIONAL PHOTOSHOOT'}}</a><i></i>
+                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{ __('professional-photo-shoot') }}</a><i></i>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378 nav-item">
-                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'SOSYAL MEDYA TANITIMIZ' : 'SOCIAL MEDIA MARKETING'}}</a><i></i>
+                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{ __('social-media-marketing') }}</a><i></i>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378 nav-item">
-                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'PORTFÖY DEĞERLEME' : 'PROPERTY ASSESSMENT'}}</a><i></i>
+                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{ __('property-assessment') }}</a><i></i>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1378 nav-item">
-                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'KONUT KREDİSİ' : 'MORTGAGE'}}</a><i></i>
+                                <a title="For Rent" href="#" class="dropdown-item" data-text="For Rent">{{ __('mortgage') }}</a><i></i>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1379 nav-item">
-                                <a title="For Sale" href="#" class="dropdown-item" data-text="For Sale">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'TAŞIMA HİZMETİ' : 'TRANSPORTATION'}}İ</a><i></i>
+                                <a title="For Sale" href="#" class="dropdown-item" data-text="For Sale">{{ __('transportation') }}</a><i></i>
                             </li>
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1379 nav-item">
-                                <a title="For Sale" href="#" class="dropdown-item" data-text="For Sale">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'TEMİZLIK HİZMETİ' : 'CLEANING SERVICE'}}</a><i></i>
+                                <a title="For Sale" href="#" class="dropdown-item" data-text="For Sale">{{ __('cleaning') }}</a><i></i>
                             </li>
                         </ul>
                     </li>
@@ -123,12 +123,12 @@
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
                         <a title="HOME" href="{{route('news')}}" class="nav-link" aria-current="page"
-                           data-text="HOME">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'MEDYA' : 'MEDIA'}}</a><i></i>
+                           data-text="HOME">{{ __('media') }}</a><i></i>
                     </li>
                     <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
                         <a title="HOME" href="{{route('contact')}}" class="nav-link" aria-current="page"
-                           data-text="HOME">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'İLETİŞİM' : 'CONTACT US'}}</a><i></i>
+                           data-text="HOME">{{ __('contact') }}</a><i></i>
                     </li>
                 </ul>
             </div>

@@ -102,7 +102,7 @@
 
 
 
-                                <h2><em>{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Neden' : 'Why'}} </em> Frame?</h2>
+                                <h2><em>{{__('why')}} </em> Frame?</h2>
 
 
 
@@ -115,7 +115,7 @@
                                 <p style="font-size: 15px; ">
                                     {{$homepages->whyframe_text}}
                                     <br>
-                                    <button id="makeAppointment" style="margin-top:20px" class="learnmorebuton">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Randevu Al' : 'Make An Appointment'}}</button>
+                                    <button id="makeAppointment" style="margin-top:20px" class="learnmorebuton">{{__('make-an-appointment')}}</button>
                                 </p>
 
                             </div>
@@ -257,11 +257,11 @@
                              style="visibility: visible; animation-name: fadeInLeftBig;">
 
                             <h4>
-                                <em>{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'GAYRİMENKUL YÖNETİMİ' : 'PROPERTY MANAGEMENT'}} </em>
+                                <em>{{__('property-management')}} </em>
                             </h4>
 
                             <h3>
-                                FRAMESUMMER İLE TANIŞTINIZ MI?</h3>
+                                {{__('have-you-met-frame-summer')}}</h3>
 
                             <p> {{$homepages->redarea_text}} </p>
 
@@ -269,14 +269,14 @@
                             <div style="display: flex; ">
                                 <div>
 
-                                    <label class="checkBoxcontainer">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Satılık' : 'Buy'}}
+                                    <label class="checkBoxcontainer">{{__('buy')}}
                                         <input type="checkbox" checked="checked">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div style="margin-left: 20px;">
 
-                                    <label class="checkBoxcontainer">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Kiralık' : 'Rent'}}
+                                    <label class="checkBoxcontainer">{{__('rent')}}
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
@@ -284,9 +284,9 @@
 
                             </div>
                             <div style="margin-top: 10px; display: flex; line-height: 0px;">
-                                <a href="{{route('rent')}}"><i class="fa fa-search"></i> {{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'EV ARAMA' : 'RESIDENTIAL'}}</a>
+                                <a href="{{route('rent')}}"><i class="fa fa-search"></i> {{__('residential')}}</a>
                                 <a style="margin-left: 20px; background-color: transparent; border:2px solid #FFFFFF; color:#FFFFFF"
-                                   href="{{route('rent')}}"><i style="margin-right: 5px;" class="fa fa-search"></i>{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'MÜLK YÖNETİMİ' : 'MÜLK YÖNETİMİ'}}</a>
+                                   href="{{route('rent')}}"><i style="margin-right: 5px;" class="fa fa-search"></i>{{__('estate-management')}}</a>
                             </div>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
                                  style="visibility: visible; animation-name: fadeInRight;">
                                 <p>{{$homepages->frameist_text}}</p>
                                 <p><br>
-                                    <a href="{{route('rent')}}" style="color:white" class="learnmorebuton">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Portföylerimiz' : 'Portfolio'}}</a>
+                                    <a href="{{route('rent')}}" style="color:white" class="learnmorebuton">{{__('properties')}}</a>
                                 </p>
                                 <p>&nbsp;</p>
 
@@ -508,7 +508,7 @@
                                 </p>
 
                                 <a href="{{route('rentBodrum')}}" style=""
-                                        class="bodrumbutton">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Portföylerimiz' : 'Portfolio'}}</a>
+                                        class="bodrumbutton">{{__('properties')}}</a>
 
                             </div>
                         </div>
@@ -1105,7 +1105,7 @@
         </div>
     </section>
     <section class="container">
-        <h3 >{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Bizi Instagramda Takip Et' : 'Follow Us On Instagram'}}  </h3><p>@framegayrimenkulrealestate</p>
+        <h3 >{{__('follow-us-instagram')}}  </h3><p>@framegayrimenkulrealestate</p>
         <div id="instafeed">
 
         </div>
