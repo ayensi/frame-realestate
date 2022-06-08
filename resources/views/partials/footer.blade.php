@@ -19,24 +19,24 @@
 
 
                             </a>
-                            <li> <a href="https://facebook.com/{{setting('site.facebook')}}" target="_blank" rel="noreferrer"> <i
+                            <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fab fa-facebook-f facebooksosyal sosyal"
                                         style="color: white; border-radius: 100%;"></i> </a>
                             </li>
 
-                            <li> <a href="https://instagram.com/{{setting('site.instagram')}}" target="_blank" rel="noreferrer"> <i
+                            <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fab fa-instagram instasosyal sosyal"
                                         style="color: white;border-radius: 100%"></i> </a> </li>
 
-                            <li> <a href="https://youtube.com/{{setting('site.youtube')}}" target="_blank" rel="noreferrer"> <i
+                            <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fab fa-youtube youtubesosyal sosyal"
                                         style="color: white;border-radius: 100%"></i> </a> </li>
 
-                            <li> <a href="https://twitter.com/{{setting('site.twitter')}}" target="_blank" rel="noreferrer"> <i
+                            <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fab fa-twitter twittersosyal sosyal"
                                         style="color: white;border-radius: 100%"></i> </a> </li>
 
-                            <li> <a href="mailto:{{setting('site.email')}}" target="_blank" rel="noreferrer"> <i
+                            <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fas fa-envelope mailsosyal sosyal"
                                         style="color: white;border-radius: 100%"></i> </a> </li>
                         </ul>

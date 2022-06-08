@@ -1,0 +1,919 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Testimonial - Addon for WPBakery Page Builder
+* Author : thecodude
+* Author URI : http://thecodude.com
+*
+* -------------------------------------------------------
+*
+*/
+
+.testi-info .name {
+    font-size: 18px;
+    color: #3a3a3a;
+    line-height: 1.3;
+}
+
+[class*="tc-testimonial"] .testi-ratings i {
+    color: #FFC107;
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+[class*="tc-testimonial"] .testi-ratings i:last-child {
+    margin-right: 0;
+}
+
+.tc-testimonial-style1 {
+    padding: 35px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-bottom: 40px !important;
+}
+
+.tc-testimonial-style1 .testi-desc p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style1 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    bottom: -48px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style1 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 0 0 1px rgba(49, 49, 49, 0.07);
+}
+
+.tc-testimonial-style1 .testi-info {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.tc-testimonial-style1 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style1 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style2
+-------------------------*/
+.tc-testimonial-style2 {
+    padding: 35px;
+    background: #fff;
+    position: relative;
+    margin-top: 40px;
+    border: 1px solid #f5f5f5;
+}
+
+.tc-testimonial-style2 .testi-desc {
+    padding-top: 35px;
+}
+
+.tc-testimonial-style2 .testi-desc p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style2 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: -40px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style2 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #f5f5f5;
+    background: #fff;
+    padding: 5px;
+}
+
+.tc-testimonial-style2 .testi-info {
+    text-align: right;
+}
+
+.tc-testimonial-style2 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style2 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style3
+-------------------------*/
+.tc-testimonial-style3 .testi-desc {
+    padding: 35px;
+    background: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tc-testimonial-style3 .testi-desc p {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style3 .testi-desc:after {
+    content: '';
+    border: 12px solid transparent;
+    position: absolute;
+    border-top-color: #fff;
+    height: 20px;
+    bottom: -24px;
+}
+
+.tc-testimonial-style3 .testi-footer {
+    display: flex;
+    align-items: center;
+}
+
+.tc-testimonial-style3 .testi-photo:before {
+    content: "";
+    display: table-cell;
+}
+
+.tc-testimonial-style3 .testi-photo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tc-testimonial-style3 .testi-photo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.08);
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.tc-testimonial-style3 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style3 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style4
+-------------------------*/
+.tc-testimonial-style4 {
+    text-align: center;
+    position: relative;
+}
+
+.tc-testimonial-style4 .testi-desc {
+    padding-top: 100px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tc-testimonial-style4 .testi-desc p {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style4 .testi-photo {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.tc-testimonial-style4 .testi-photo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.tc-testimonial-style4 .testi-info {
+    display: inline-block;
+    padding-top: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.tc-testimonial-style4 .testi-info:before {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    content: '';
+    height: 1px;
+    width: 20px;
+    background-color: #444;
+}
+
+.tc-testimonial-style4 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style4 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style5
+-------------------------*/
+.tc-testimonial-style5 .testi-desc {
+    padding: 35px;
+    background: #fff;
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.tc-testimonial-style5 .testi-desc p {
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.tc-testimonial-style5 .testi-desc:after {
+    content: '';
+    border: 12px solid transparent;
+    position: absolute;
+    border-top-color: #fff;
+    height: 20px;
+    bottom: -23px;
+}
+
+.tc-testimonial-style5 .testi-desc:before {
+    content: '';
+    border: 12px solid transparent;
+    position: absolute;
+    border-top-color: #444;
+    height: 20px;
+    bottom: -24px;
+}
+
+.tc-testimonial-style5 .testi-footer {
+    display: flex;
+    align-items: center;
+}
+
+.tc-testimonial-style5 .testi-photo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    vertical-align: middle;
+    padding: 5px;
+    background: #444;
+    margin-right: 15px;
+}
+
+.tc-testimonial-style5 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style5 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style6
+-------------------------*/
+.tc-testimonial-style6 {
+    padding-top: 40px;
+    position: relative;
+}
+
+.tc-testimonial-style6 .testi-desc {
+    padding-top: 65px;
+    border-top: 2px solid #f5f5f5;
+    margin-bottom: 25px;
+}
+
+.tc-testimonial-style6 .testi-desc p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style6 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    margin-right: 29px;
+}
+
+.tc-testimonial-style6 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    background: #f9f9f9;
+    padding: 5px;
+}
+
+.tc-testimonial-style6 .testi-info {
+    text-align: right;
+    background: #f5f5f5;
+    padding: 10px 15px;
+    background: -webkit-linear-gradient(left, transparent 15%, #f5f5f5 85%, #eee 100%);
+    background: linear-gradient(to right, transparent 15%, #f5f5f5 85%, #eee 100%);
+}
+
+.tc-testimonial-style6 .position {
+    font-size: 12px;
+    color: #888;
+}
+
+.tc-testimonial-style6 .position a {
+    color: #888;
+}
+
+/*-----------------------
+    Testimonial Style7
+-------------------------*/
+.tc-testimonial-style7 {
+    padding: 35px;
+    background: #fff;
+    position: relative;
+    margin-top: 45px;
+    border: 1px solid #f5f5f5;
+    border-radius: 6px;
+}
+
+.tc-testimonial-style7 .testi-desc {
+    padding-top: 35px;
+    text-align: center;
+}
+
+.tc-testimonial-style7 .testi-desc p {
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.tc-testimonial-style7 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tc-testimonial-style7 .testi-photo img {
+    width: 90px;
+    height: 90px;
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style7 .testi-info {
+    text-align: center;
+}
+
+.tc-testimonial-style7 .position {
+    font-size: 14px;
+    color: #888;
+}
+
+.tc-testimonial-style7 .position a {
+    color: #888;
+}
+
+.tc-testimonial-style7 span.name {
+    font-size: 18px;
+    color: #444;
+}
+
+/*-----------------------
+    Testimonial Style8
+-------------------------*/
+.tc-testimonial-style8 {
+    padding: 35px;
+    background: #2a2a2a;
+    position: relative;
+}
+
+.tc-testimonial-style8 .testi-desc {
+    position: relative;
+    padding-top: 105px;
+    margin-bottom: 30px;
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style8 .testi-desc p {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.tc-testimonial-style8 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    border-radius: 50%;
+    margin-right: 29px;
+}
+
+.tc-testimonial-style8 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    background: #f9f9f9;
+    padding: 5px;
+}
+
+.tc-testimonial-style8 .testi-info {
+    text-align: right;
+    border: 4px solid rgba(255, 255, 255, 0.04);
+    padding: 10px 15px;
+}
+
+.tc-testimonial-style8 .position {
+    font-size: 14px;
+    color: #888;
+}
+
+.tc-testimonial-style8 .position a {
+    color: #888;
+}
+
+.tc-testimonial-style8 .position a:hover {
+    color: #bbb;
+}
+
+.tc-testimonial-style8 .name {
+    font-size: 18px;
+    color: #bbb;
+}
+
+.tc-testimonial-style8 .testi-desc:before {
+    font-family: FontAwesome;
+    content: "\f10e";
+    position: absolute;
+    top: 29px;
+    right: 35px;
+    font-size: 72px;
+    color: #888;
+    opacity: 0.4;
+}
+
+/*-----------------------
+    Testimonial Style9
+-------------------------*/
+.tc-testimonial-style9 {
+    padding: 35px;
+    background-color: #ff387b;
+    position: relative;
+    background-image: linear-gradient(45deg,#ff387b 0,#5a73ff 100%);
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.tc-testimonial-style9 .testi-desc {
+    position: relative;
+    padding-top: 128px;
+    margin-bottom: 30px;
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style9 .testi-desc p {
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+.tc-testimonial-style9 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    border-radius: 50%;
+    margin-right: 29px;
+    transform: translateX(-50%);
+}
+
+.tc-testimonial-style9 .testi-photo img {
+    width: 100px;
+    height: 100px;
+    background: #f9f9f9;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style9 .testi-info {
+    border-top: 4px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.tc-testimonial-style9 .position {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tc-testimonial-style9 .position a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tc-testimonial-style9 .position a:hover {
+    color: #bbb;
+}
+
+.tc-testimonial-style9 .name {
+    font-size: 22px;
+    color: #fff;
+}
+
+.tc-testimonial-style9 .testi-desc:before {
+    font-family: FontAwesome;
+    content: "\f10d";
+    position: absolute;
+    top: 40px;
+    left: 35px;
+    font-size: 100px;
+    color: #fff;
+    opacity: 0.1;
+}
+
+
+/*-----------------------
+    Testimonial Style10
+-------------------------*/
+.tc-testimonial-style10 {
+    padding: 35px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tc-testimonial-style10 .testi-desc {
+    position: relative;
+    padding-top: 128px;
+    margin-bottom: 30px;
+    font-size: 19px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style10 .testi-desc p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tc-testimonial-style10 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    border-radius: 50%;
+    margin-right: 29px;
+    transform: translateX(-50%);
+}
+
+.tc-testimonial-style10 .testi-photo img {
+    width: 100px;
+    height: 100px;
+    background: #f9f9f9;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style10 .testi-info {
+    border-top: 4px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.tc-testimonial-style10 .position {
+    font-size: 15px;
+}
+.tc-testimonial-style10 .position a:hover {
+    color: #bbb;
+}
+
+.tc-testimonial-style10 .name {
+    font-size: 22px;
+}
+
+.tc-testimonial-style10 .testi-desc:before {
+    font-family: FontAwesome;
+    content: "\f10d";
+    position: absolute;
+    top: 40px;
+    left: 35px;
+    font-size: 100px;
+    color: #000;
+    opacity: 0.1;
+}
+
+/*-----------------------
+    Testimonial Style 11
+-------------------------*/
+.tc-testimonial-style11 {
+    padding: 45px 30px 40px 40px;
+    background: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.tc-testimonial-style11:hover {
+    border-color: #ccc;
+    box-shadow: 0 20px 40px -5px rgba(9,30,66,.3);
+    transform: translateY(-4px);
+}
+
+.tc-testimonial-style11:before {
+    font-family: FontAwesome;
+    content: "\f10d";
+    position: absolute;
+    top: 12px;
+    left: 23px;
+    font-size: 150px;
+    color: #1b309f;
+    opacity: 0.05;
+    line-height: 1;
+}
+
+
+.tc-testimonial-style11 .testi-desc {
+    text-align: center;
+}
+
+.tc-testimonial-style11 .testi-desc p {
+    font-size: 19px;
+    line-height: 30px;
+    font-style: italic;
+}
+
+.tc-testimonial-style11 .testi-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 34px;
+}
+
+.tc-testimonial-style11 .testi-photo:before {
+    content: "";
+    display: table-cell;
+}
+
+.tc-testimonial-style11 .testi-photo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tc-testimonial-style11 .testi-photo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 10px;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.tc-testimonial-style11 .testi-info .name {
+    font-size: 22px;
+    color: #3a3a3a;
+}
+
+.tc-testimonial-style11 .position {
+    font-size: 16px;
+    color: #777;
+}
+
+.tc-testimonial-style11 .position a {
+    color: #777;
+}
+
+
+/*--------------------------
+    Testimonial Style 12
+----------------------------*/
+.tc-testimonial-style12 {
+    padding: 35px;
+    background: #fff;
+    position: relative;
+    margin-top: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.tc-testimonial-style12:before {
+    font-family: FontAwesome;
+    content: "\f10d";
+    position: absolute;
+    top: 16px;
+    right: 25px;
+    font-size: 64px;
+    color: #344296;
+    opacity: 0.1;
+    line-height: 1;
+    transform: rotate(180deg);
+}
+
+.tc-testimonial-style12 .testi-desc {
+    padding-top: 35px;
+}
+
+.tc-testimonial-style12 .testi-desc p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.tc-testimonial-style12 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    top: -40px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style12 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style12 .testi-info {
+    text-align: right;
+    position: relative;
+    margin-top: 14px;
+}
+
+.tc-testimonial-style12 .testi-info .name {
+    font-size: 22px;
+    color: #3a3a3a;
+}
+
+.tc-testimonial-style12 .position {
+    font-size: 16px;
+    color: #555;
+}
+
+.tc-testimonial-style12 .position a {
+    color: #555;
+}
+
+.tc-testimonial-style12 .testi-ratings i {
+    color: #FFC107;
+    font-size: 23px;
+    margin-right: 3px;
+}
+
+@media ( min-width: 600px ) {
+    .tc-testimonial-style12 .testi-ratings {
+        text-align: left;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+/*-----------------------
+    Testimonial Style 13
+-------------------------*/
+.tc-testimonial-style13 .testi-desc {
+    padding: 35px;
+    background: #fff;
+    margin-bottom: 50px;
+    border-left: 4px solid #F44336;
+    position: relative;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+}
+
+.tc-testimonial-style13 .testi-desc p {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style13 .testi-desc:after {
+    content: '';
+    border: 30px solid transparent;
+    position: absolute;
+    border-top-color: #fff;
+    bottom: -60px;
+    left: 47%;
+    transform: translateX(-50%);
+}
+
+.tc-testimonial-style13 .testi-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tc-testimonial-style13 .testi-photo:before {
+    content: "";
+    display: table-cell;
+}
+
+.tc-testimonial-style13 .testi-photo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tc-testimonial-style13 .testi-photo img {
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    padding: 6px;
+    background: #fff;
+    vertical-align: middle;
+    margin-right: 20px;
+    border: 1px solid #eee;
+}
+
+.tc-testimonial-style13 .position {
+    font-size: 14px;
+    color: #5a5a5a;
+    margin-bottom: 3px;
+}
+
+.tc-testimonial-style13 .position a {
+    color: #E91E63;
+}
+
+
+/*-----------------------
+    Testimonial Style 14
+-------------------------*/
+.tc-testimonial-style14 {
+    padding: 33px;
+    background-color: #3f61f6;
+    background-image: linear-gradient(45deg,#9C27B0 0,#5a23ff 100%);
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 7px;
+}
+
+.tc-testimonial-style14 .testi-desc p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.tc-testimonial-style14 .testi-photo {
+    display: inline-block;
+    position: absolute;
+    bottom: -36px;
+    border-radius: 50%;
+}
+
+.tc-testimonial-style14 .testi-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 0 0 6px rgba(151, 151, 151, 0.07);
+}
+
+.tc-testimonial-style14 .testi-info {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.tc-testimonial-style14 .position {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.tc-testimonial-style14 *,
+.tc-testimonial-style14 .testi-info .name {
+    color: #fff;
+}
+
+.tc-testimonial-style14 .position a {
+    color: #fff;
+}
