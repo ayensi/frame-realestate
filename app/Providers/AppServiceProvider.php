@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Contracts\IUserService;
+use App\Http\Services\UserService;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Factory;
+use JeroenNoten\LaravelAdminLte\Http\ViewComposers\AdminLteComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Factory $view)
     {
-        //
+        $view->composer('vendor.adminlte.*', AdminLteComposer::class);
+        $this->app->bind(IUserService::class, UserService::class);
     }
 }

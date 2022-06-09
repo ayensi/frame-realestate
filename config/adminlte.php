@@ -189,10 +189,12 @@ return [
 
     'use_route_url' => false,
     'dashboard_url' => 'home',
-    'logout_url' => 'logout',
-    'login_url' => 'login',
-    'register_url' => 'register',
-    'password_reset_url' => 'password/reset',
+    'logout_url' => '/admin/logout',
+    'login_url' => '/admin/login',
+    'loginPost_url' => '/admin/login',
+    'register_url' => '/admin/register',
+    'registerPost_url' => '/admin/register',
+    'password_reset_url' => '/admin/password-reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
 

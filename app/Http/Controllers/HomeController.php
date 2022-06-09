@@ -13,4 +13,7 @@ class HomeController extends Controller
         $homepages->whyframe_text = "sa";
         return view('home',compact('sliders','homepages'));
     }
+    public function welcome(Request $request){
+        return view('welcome');
+    }
 }

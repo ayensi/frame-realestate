@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/admin/login', [\App\Http\Controllers\AdminController::class,'login'])->name('login');
+Route::post('/admin/login', [\App\Http\Controllers\AdminController::class,'loginPost'])->name('loginPost');
+Route::post('/admin/register', [\App\Http\Controllers\AdminController::class,'registerPost'])->name('registerPost');
+Route::get('/admin/register', [\App\Http\Controllers\AdminController::class,'register'])->name('register');
 
+Route::prefix('/admin')->middleware('auth')->group(function (){
+    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class,'dashboard'])->name('dashboard');
+    Route::post('/logout', [\App\Http\Controllers\AdminController::class,'logout'])->name('logout');
+});
 
 Route::group(['prefix' => '{locale?}', 'middleware' => 'localize'], function () {
+
     Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('home');
+    Route::get('/welcome', [\App\Http\Controllers\HomeController::class,'welcome'])->name('welcome');
     Route::get('/about-us', [\App\Http\Controllers\AboutController::class,'index'])->name('about');
     Route::get('/team', [\App\Http\Controllers\TeamController::class,'index'])->name('team');
     Route::get('/service', [\App\Http\Controllers\ServicesController::class,'index'])->name('service');
@@ -47,12 +58,6 @@ Route::group(['prefix' => '{locale?}', 'middleware' => 'localize'], function () 
 
     })->name('contact');
 
-
-
-
-
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
