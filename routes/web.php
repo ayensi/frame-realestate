@@ -22,6 +22,13 @@ Route::get('/admin/register', [\App\Http\Controllers\AdminController::class,'reg
 Route::prefix('/admin')->middleware('auth')->group(function (){
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class,'dashboard'])->name('dashboard');
     Route::post('/logout', [\App\Http\Controllers\AdminController::class,'logout'])->name('logout');
+    Route::prefix('/languages')->group(function (){
+        Route::get('/',[\App\Http\Controllers\LanguageController::class,'index'])->name('languages.index');
+        Route::post('/create',[\App\Http\Controllers\LanguageController::class,'store'])->name('languages.store');
+        Route::put('/edit',[\App\Http\Controllers\LanguageController::class,'update'])->name('languages.update');
+        Route::post('/delete',[\App\Http\Controllers\LanguageController::class,'destroy'])->name('languages.destroy');
+    });
+    Route::get('/menus',[\App\Http\Controllers\MenuController::class,'index'])->name('menus.index');
 });
 
 Route::group(['prefix' => '{locale?}', 'middleware' => 'localize'], function () {

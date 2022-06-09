@@ -16,4 +16,7 @@ return [
     'important'                     => 'Önemli',
     'warning'                       => 'Uyarı',
     'information'                   => 'Bilgi',
+    'content' => 'İÇERİK',
+    'languages' => "Diller",
+    'menus'=>'Menüler',
 ];

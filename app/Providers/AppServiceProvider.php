@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Contracts\ICrudService;
 use App\Http\Contracts\IUserService;
+use App\Http\Services\CrudService;
 use App\Http\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Factory;
@@ -29,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $view->composer('vendor.adminlte.*', AdminLteComposer::class);
         $this->app->bind(IUserService::class, UserService::class);
+        $this->app->bind(ICrudService::class, CrudService::class);
     }
 }

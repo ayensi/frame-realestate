@@ -16,4 +16,9 @@ return [
     'important'                     => 'Important',
     'warning'                       => 'Warning',
     'information'                   => 'Information',
+    'content' => 'CONTENT',
+    'languages' => "Languages",
+    'menus'=>'Menus',
+
+
 ];
