@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <a href="#yeniEkle" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni Dil</span></a>
-                    <a href="#SilModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
+                    <a href="#CokluSilModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>
 							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<input type="checkbox" id="checkbox1" name="options[]" data-id="{{$l->id}}" value="1">
 								<label for="checkbox1"></label>
 							</span>
                         </td>
@@ -47,7 +47,7 @@
                         <td>{{$l->slug}}</td>
                         <td>
                             <a href="#DuzenleModal" id="{{$l->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
-                            <a href="#SilModal" class="Sil" id="{{$l->id}}" data-toggle="modal"><i class="fa fa-delete" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
+                            <a href="#SilModal" class="Sil" id="{{$l->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -137,6 +137,27 @@
     </div>
 </div>
 
+<div id="CokluSilModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{{route('languages.destroyMany')}}" method="post">
+                @csrf
+                <div class="modal-header">
+                    <h4 class="modal-title">Kayıt Sil</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Bu kayıtları silmek istediğinize emin misiniz?</p>
+                </div>
+                <div class="modal-footer">
+                    <input id="idsToDelete" type="hidden" name="ids[]">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Sil">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
@@ -170,5 +191,25 @@
         $('.Sil').on('click', function(evt) {
             $('#idToDelete').val($(this).attr('id'));
         });
+        var ids=[];
+        $('#CokluSilModal').on('click',function (evt){
+            $("input:checkbox[type=checkbox]:checked").each(function(){
+                ids.push($(this).attr('data-id'));
+            });
+            $('#idsToDelete').val(ids);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type:'POST',
+                url:"{{ route('languages.destroyMany') }}",
+                data:{ids:ids},
+            });
+        });
+
     </script>
 @endsection

@@ -27,6 +27,7 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         Route::post('/create',[\App\Http\Controllers\LanguageController::class,'store'])->name('languages.store');
         Route::put('/edit',[\App\Http\Controllers\LanguageController::class,'update'])->name('languages.update');
         Route::post('/delete',[\App\Http\Controllers\LanguageController::class,'destroy'])->name('languages.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\LanguageController::class,'destroyMany'])->name('languages.destroyMany');
     });
     Route::get('/menus',[\App\Http\Controllers\MenuController::class,'index'])->name('menus.index');
 });

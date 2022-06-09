@@ -32,11 +32,15 @@ class LanguageController extends Controller
     }
 
     public function destroy(Request $request,$ids){
-        if(count($ids)>1){
-            $this->crudService->deleteMany(Language::class,$ids);
-        }
-        else{
-            $this->crudService->delete(Language::class,$request->id);
+        $this->crudService->delete(Language::class,$request->id);
+        return redirect(route('languages.index'));
+
+    }
+
+    public function destroyMany(Request $request){
+        $ids = $request->ids;
+        if(count($request->ids)>1){
+            $this->crudService->deleteMany(Language::class,$request->ids);
         }
         return redirect(route('languages.index'));
 
