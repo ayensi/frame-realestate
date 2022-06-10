@@ -38,8 +38,12 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
         Route::post('/orderEdit',[\App\Http\Controllers\MenuController::class,'orderUpdate'])->name('menus.orderUpdate');
     });
     Route::prefix('/contents')->group(function (){
-        Route::get('/',[\App\Http\Controllers\MenuController::class,'index'])->name('contents.index');
-        Route::post('/create',[\App\Http\Controllers\MenuController::class,'store'])->name('menus.store');
+        Route::get('/',[\App\Http\Controllers\ContentController::class,'index'])->name('contents.index');
+        Route::post('/create',[\App\Http\Controllers\ContentController::class,'store'])->name('contents.store');
+        Route::post('/edit',[\App\Http\Controllers\ContentController::class,'update'])->name('contents.update');
+        Route::post('/delete',[\App\Http\Controllers\ContentController::class,'destroy'])->name('contents.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\ContentController::class,'destroyMany'])->name('contents.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\ContentController::class,'orderUpdate'])->name('contents.orderUpdate');
 
 
     });
@@ -49,7 +53,7 @@ Route::group(['prefix' => '{locale?}', 'middleware' => 'localize'], function () 
 
     Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('home');
     Route::get('/welcome', [\App\Http\Controllers\HomeController::class,'welcome'])->name('welcome');
-    Route::get('/about-us', [\App\Http\Controllers\AboutController::class,'index'])->name('about');
+    Route::get('/about-us', [\App\Http\Controllers\HomeController::class,'aboutUs'])->name('aboutUs');
     Route::get('/team', [\App\Http\Controllers\TeamController::class,'index'])->name('team');
     Route::get('/service', [\App\Http\Controllers\ServicesController::class,'index'])->name('service');
     Route::get('/news', [\App\Http\Controllers\NewsController::class,'index'])->name('news');

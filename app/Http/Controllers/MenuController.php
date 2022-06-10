@@ -26,16 +26,20 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:menus',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $data = [
 
-        ];
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->storeAs('images', $imageName);
+
         if($request->isSubMenu){
             $data = [
                 'name' => $request->name,
                 'slug' => $request->slug,
                 'isSubMenu' => 1,
-                'parentId' => $request->parentId
+                'parentId' => $request->parentId,
+                'image' => $imageName
             ];
         }
         else
@@ -43,6 +47,7 @@ class MenuController extends Controller
                 'name' => $request->name,
                 'slug' => $request->slug,
                 'isSubMenu' => 0,
+                'image' => $imageName
             ];
 
         $this->crudService->create(Menu::class,$data);

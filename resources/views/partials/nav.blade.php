@@ -56,7 +56,7 @@
                     </li>
                     <li itemscope="itemscope"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-427 current_page_item active menu-item-22 nav-item">
-                        <a title="HOME" href="{{route('about')}}" class="nav-link" aria-current="page"
+                        <a title="HOME" href="{{route('aboutUs')}}" class="nav-link" aria-current="page"
                            data-text="HOME">{{ __('about-us') }}
                         </a><i></i>
                     </li>

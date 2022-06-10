@@ -29,6 +29,7 @@
                     <th>Kısaltma</th>
                     <th>Alt Menü mü?</th>
                     <th>Üst Menü İsmi</th>
+                    <th>Resim</th>
                     <th>Sıra</th>
                     <th>Sırala</th>
                 </tr>
@@ -53,6 +54,9 @@
                                     <td>Hayır</td>
                                     <td></td>
                                 @endif
+                                <td>
+                                    {{$m->image}}
+                                </td>
                                 <form action="{{route('menus.orderUpdate')}}" method="post">
                                     @csrf
                                     @if(!$m->isSubMenu)
@@ -124,6 +128,9 @@
                         <div class="form-group">
                             <label>Kısaltma</label>
                             <input name="slug" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="image" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Alt menü mü?</label>

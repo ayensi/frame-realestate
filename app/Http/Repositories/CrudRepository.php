@@ -4,6 +4,9 @@ namespace App\Http\Repositories;
 
 class CrudRepository
 {
+    public function findOne($model,$id){
+        return $model::find($id);
+    }
     public function findAllByOrder($model){
         return $model::orderBy("order")->get();
     }

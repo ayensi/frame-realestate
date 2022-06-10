@@ -43,4 +43,9 @@ class CrudService implements ICrudService
     {
         return $this->crudRepository->findAllByOrder($model);
     }
+
+    public function findOne($model,$id)
+    {
+        return $this->crudRepository->findOne($model,$id);
+    }
 }
