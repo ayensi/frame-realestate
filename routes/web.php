@@ -25,11 +25,24 @@ Route::prefix('/admin')->middleware('auth')->group(function (){
     Route::prefix('/languages')->group(function (){
         Route::get('/',[\App\Http\Controllers\LanguageController::class,'index'])->name('languages.index');
         Route::post('/create',[\App\Http\Controllers\LanguageController::class,'store'])->name('languages.store');
-        Route::put('/edit',[\App\Http\Controllers\LanguageController::class,'update'])->name('languages.update');
+        Route::post('/edit',[\App\Http\Controllers\LanguageController::class,'update'])->name('languages.update');
         Route::post('/delete',[\App\Http\Controllers\LanguageController::class,'destroy'])->name('languages.destroy');
         Route::post('/deleteMany',[\App\Http\Controllers\LanguageController::class,'destroyMany'])->name('languages.destroyMany');
     });
-    Route::get('/menus',[\App\Http\Controllers\MenuController::class,'index'])->name('menus.index');
+    Route::prefix('/menus')->group(function (){
+        Route::get('/',[\App\Http\Controllers\MenuController::class,'index'])->name('menus.index');
+        Route::post('/create',[\App\Http\Controllers\MenuController::class,'store'])->name('menus.store');
+        Route::post('/edit',[\App\Http\Controllers\MenuController::class,'update'])->name('menus.update');
+        Route::post('/delete',[\App\Http\Controllers\MenuController::class,'destroy'])->name('menus.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\MenuController::class,'destroyMany'])->name('menus.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\MenuController::class,'orderUpdate'])->name('menus.orderUpdate');
+    });
+    Route::prefix('/contents')->group(function (){
+        Route::get('/',[\App\Http\Controllers\MenuController::class,'index'])->name('contents.index');
+        Route::post('/create',[\App\Http\Controllers\MenuController::class,'store'])->name('menus.store');
+
+
+    });
 });
 
 Route::group(['prefix' => '{locale?}', 'middleware' => 'localize'], function () {

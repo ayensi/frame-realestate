@@ -31,7 +31,7 @@ class LanguageController extends Controller
         return redirect(route('languages.index'));
     }
 
-    public function destroy(Request $request,$ids){
+    public function destroy(Request $request){
         $this->crudService->delete(Language::class,$request->id);
         return redirect(route('languages.index'));
 
@@ -42,6 +42,12 @@ class LanguageController extends Controller
         if(count($request->ids)>1){
             $this->crudService->deleteMany(Language::class,$request->ids);
         }
+        return redirect(route('languages.index'));
+    }
+
+    public function update(Request $request){
+        $data = array_filter($request->except(['_token']));
+        $this->crudService->update(Language::class,$request->id,$data);
         return redirect(route('languages.index'));
 
     }

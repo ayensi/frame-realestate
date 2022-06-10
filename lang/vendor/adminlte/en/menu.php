@@ -19,6 +19,7 @@ return [
     'content' => 'CONTENT',
     'languages' => "Languages",
     'menus'=>'Menus',
+    'contents'=>'Contents',
 
 
 ];

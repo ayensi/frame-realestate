@@ -253,6 +253,10 @@ return [
             'text' => 'menus',
             'url'  => 'admin/menus',
             'icon' => 'fas fa-fw fa',
+        ],[
+            'text' => 'contents',
+            'url'  => 'admin/contents',
+            'icon' => 'fas fa-fw fa-book',
         ],
         [
             'text'    => 'multilevel',

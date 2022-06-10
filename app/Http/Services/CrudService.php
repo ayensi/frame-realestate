@@ -32,4 +32,15 @@ class CrudService implements ICrudService
     {
         $this->crudRepository->deleteMany($model,$ids);
     }
+
+
+    public function update($model, $id, $data)
+    {
+        $this->crudRepository->update($model,$id,$data);
+    }
+
+    public function findAllByOrder($model)
+    {
+        return $this->crudRepository->findAllByOrder($model);
+    }
 }

@@ -4,10 +4,13 @@ namespace App\Http\Repositories;
 
 class CrudRepository
 {
+    public function findAllByOrder($model){
+        return $model::orderBy("order")->get();
+    }
     public function findAll($model){
         return $model::all();
     }
-    public function create($model,$data){
+    public function create($model,$data){;
         $obj = new $model($data);
         if($obj){
             $obj->save();
@@ -23,4 +26,9 @@ class CrudRepository
             $obj->delete();
         }
     }
+
+    public function update($model,$id,$data){
+        $model::where('id',$id)->update($data);
+    }
+
 }

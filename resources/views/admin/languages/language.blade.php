@@ -87,27 +87,30 @@
     </div>
 </div>
 <!-- Duzenle Modal HTML -->
+<!-- Duzenle Modal HTML -->
 <div id="DuzenleModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form method="post" action="{{route('languages.update')}}">
+                @csrf
                 <div class="modal-header">
-                    <h4 class="modal-title">Kayıt Düzenle</h4>
+                    <h4 class="modal-title">Kayıt düzenle</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label>İsim</label>
-                        <input name="name" type="text" class="form-control" required>
+                        <input name="name" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Kısaltma</label>
-                        <input name="slug" type="text" class="form-control" required>
+                        <input name="slug" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="id" id="idToUpdate">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
+                    <input type="submit" class="btn btn-success" value="Kaydet">
                 </div>
             </form>
         </div>
@@ -119,7 +122,6 @@
         <div class="modal-content">
             <form action="{{route('languages.destroy')}}" method="post">
                 @csrf
-                <input name="_method" type="hidden" value="DELETE">
                 <div class="modal-header">
                     <h4 class="modal-title">Kayıt Sil</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -190,6 +192,9 @@
 
         $('.Sil').on('click', function(evt) {
             $('#idToDelete').val($(this).attr('id'));
+        });
+        $('.Duzenle').on('click', function(evt) {
+            $('#idToUpdate').val($(this).attr('id'));
         });
         var ids=[];
         $('#CokluSilModal').on('click',function (evt){

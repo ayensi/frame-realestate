@@ -19,4 +19,5 @@ return [
     'content' => 'İÇERİK',
     'languages' => "Diller",
     'menus'=>'Menüler',
+    'contents'=>'İçerikler',
 ];
