@@ -12,4 +12,7 @@ class MenuRepository
         $menu->order = $order;
         $menu->save();
     }
+    public function findWithSlug($slug){
+        return Menu::where('slug',$slug)->first()->id;
+    }
 }

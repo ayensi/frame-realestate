@@ -26,12 +26,15 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:menus',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
+        if($request->image){
+            $imageName = time().'.'.$request->image->extension();
 
-        $request->image->storeAs('images', $imageName);
+            $request->image->move(public_path('images'), $imageName);
+        }
+        $imageName="";
 
         if($request->isSubMenu){
             $data = [
@@ -55,7 +58,20 @@ class MenuController extends Controller
     }
 
     public function update(Request $request){
-        $data = array_filter($request->except(['_token']));
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $data = array_filter($request->except(['_token','image']));
+        $imageName="";
+
+        if($request->image){
+            $imageName = time().'.'.$request->image->extension();
+
+            $request->image->move(public_path('images'), $imageName);
+
+        }
+
+        $data['headerImage'] = $imageName;
         $this->crudService->update(Menu::class,$request->id,$data);
         return redirect(route('menus.index'));
     }

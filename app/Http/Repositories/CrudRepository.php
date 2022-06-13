@@ -13,6 +13,9 @@ class CrudRepository
     public function findAll($model){
         return $model::all();
     }
+    public function findWithMenuId($model,$id,$lId){
+        return $model::where('menu_id',$id)->where('language_id',$lId)->get();
+    }
     public function create($model,$data){;
         $obj = new $model($data);
         if($obj){

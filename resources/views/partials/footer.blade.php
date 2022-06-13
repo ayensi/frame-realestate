@@ -14,11 +14,7 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.10s"
                      style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <div style="display: flex; justify-content: center;" class="social-media footerSocial">
-                        <ul style="display: flex;list-style: none; margin-right: -73px; "><a
-                                href="https://webtasarimcistanbul.com/emlak/">
-
-
-                            </a>
+                        <ul style="display: flex;list-style: none; margin-right: -73px; ">
                             <li> <a href="" target="_blank" rel="noreferrer"> <i
                                         class="fab fa-facebook-f facebooksosyal sosyal"
                                         style="color: white; border-radius: 100%;"></i> </a>

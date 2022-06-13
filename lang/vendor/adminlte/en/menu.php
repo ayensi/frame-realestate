@@ -20,6 +20,9 @@ return [
     'languages' => "Languages",
     'menus'=>'Menus',
     'contents'=>'Contents',
+    'urls' => 'URLs',
+    'team' => "Team",
+    'services' => "Services",
 
 
 ];

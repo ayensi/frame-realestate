@@ -20,4 +20,8 @@ return [
     'languages' => "Diller",
     'menus'=>'Menüler',
     'contents'=>'İçerikler',
+    'urls' => 'URLler',
+    'team' => "Ekibimiz",
+    'services' => "Hizmetlerimiz",
+
 ];

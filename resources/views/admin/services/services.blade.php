@@ -7,10 +7,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2><b>İçerikler</b></h2>
+                        <h2><b>Hizmetler</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#yeniEkle" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni İçerik</span></a>
+                        <a href="#yeniEkle" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni Hizmet</span></a>
                         <a href="#CokluSilModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
                     </div>
                 </div>
@@ -25,35 +25,29 @@
 								<label for="selectAll"></label>
 							</span>
                     </th>
-                    <th>İsim</th>
-                    <th>Ait Olduğu Dil</th>
-                    <th>Ait Olduğu Menü</th>
-                    <th>İçerik</th>
                     <th>Başlık</th>
-                    <th>Altmetin</th>
+                    <th>Resim</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                @if(count($contents)>0)
-                    @foreach($contents as $c)
-                        <tr>
-                            <td>
+                @if(count($services)>0)
+                    @foreach($services as $s)
+                            <tr>
+                                <td>
 							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" data-id="{{$c->id}}" value="1">
+								<input type="checkbox" id="checkbox1" name="options[]" data-id="{{$s->id}}" value="1">
 								<label for="checkbox1"></label>
 							</span>
-                            </td>
-                            <td>{{$c->name}}</td>
-                            <td>{{$c->language->name}}</td>
-                            <td>{{$c->menu->name}}</td>
-                            <td>{{\Illuminate\Support\Str::limit($c->content, $limit = 150, $end = '...')}}</td>
-                            <td>{{$c->headline}}</td>
-                            <td>{{$c->subtext}}</td>
-                            <td>
-                                <a href="#DuzenleModal" id="{{$c->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
-                                <a href="#SilModal" class="Sil" id="{{$c->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>{{$s->title}}</td>
+                                <td>
+                                    {{$s->image}}
+                                </td>
+                                <td>
+                                    <a href="#DuzenleModal" id="{{$s->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
+                                    <a href="#SilModal" class="Sil" id="{{$s->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
+                                </td>
                     @endforeach
                 @endif
 
@@ -64,9 +58,9 @@
     </div>
     <!-- Ekle Modal HTML -->
     <div id="yeniEkle" class="modal fade">
-        <div class="modal-dialog" style="width: 100%;max-width: 1200px;">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('contents.store')}}">
+                <form method="post" action="{{route('services.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt ekle</h4>
@@ -74,36 +68,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Ait Olduğu Dil</label>
-                            <select name="languageId" id="parentLanguage">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Ait Olduğu Menü</label>
-                            <select name="menuId" id="parentMenu">
-                                @foreach($menus as $m)
-                                    <option value="{{$m->id}}">{{$m->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>İçerik</label>
-                                <textarea class="ckeditor form-control" name="editortext"></textarea>
-                        </div>
-                        <div class="form-group">
                             <label>Başlık</label>
-                            <input class="form-control" type="text" name="headline">
+                            <input name="title" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Altmetin</label>
-                            <input class="form-control" type="text" name="subtext">
+                            <input type="file" name="image" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -115,11 +84,10 @@
         </div>
     </div>
     <!-- Duzenle Modal HTML -->
-    <!-- Duzenle Modal HTML -->
     <div id="DuzenleModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('contents.update')}}">
+                <form method="post" action="{{route('services.update')}}">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt düzenle</h4>
@@ -127,36 +95,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Ait Olduğu Dil</label>
-                            <select name="languageId" id="parentLanguage">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Ait Olduğu Menü</label>
-                            <select name="menuId" id="parentMenu">
-                                @foreach($menus as $m)
-                                    <option value="{{$m->id}}">{{$m->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>İçerik</label>
-                            <textarea class="ckeditor form-control" name="editortext"></textarea>
-                        </div>
-                        <div class="form-group">
                             <label>Başlık</label>
-                            <input class="form-control" type="text" name="headline">
+                            <input name="title" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Altmetin</label>
-                            <input class="form-control" type="text" name="subtext">
+                            <input type="file" name="image" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -172,7 +115,7 @@
     <div id="SilModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{route('contents.destroy')}}" method="post">
+                <form action="{{route('services.destroy')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt Sil</h4>
@@ -194,7 +137,7 @@
     <div id="CokluSilModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{route('contents.destroyMany')}}" method="post">
+                <form action="{{route('services.destroyMany')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt Sil</h4>
@@ -217,14 +160,32 @@
 
 @endsection
 @section('js')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
     <script>
         $(document).ready(function(){
+            $(this).siblings(".accordion-content").slideDown();
+
+
+
+
+
+
+
+
+            $('#isSubCheck').change(function(){
+                if( $('#isSubCheck').is(':checked') ){
+                    $('#select-div').show();
+                    $('#select-div').attr("required",true);
+                    $('#isSubCheck').prop('checked',true);
+                    $('#isSubCheckData').val(true);
+                } else {
+                    $('#select-div').hide();
+                    $('#select-div').attr("required",false);
+                    $('#isSubCheck').prop('checked',false);
+                    $('#isSubCheckData').val(false);
+                }
+            });
+
+
             // Activate tooltip
             $('[data-toggle="tooltip"]').tooltip();
 
@@ -251,10 +212,13 @@
         $('.Sil').on('click', function(evt) {
             $('#idToDelete').val($(this).attr('id'));
         });
-        $('.Duzenle').on('click', function(evt) {
-            $('#idToUpdate').val($(this).attr('id'));
-        });
         var ids=[];
+        $('.Duzenle').on('click',function (evt){
+
+            $('#idToUpdate').val($(this).attr('id'));
+
+        });
+
         $('#CokluSilModal').on('click',function (evt){
             $("input:checkbox[type=checkbox]:checked").each(function(){
                 ids.push($(this).attr('data-id'));
@@ -269,10 +233,11 @@
 
             $.ajax({
                 type:'POST',
-                url:"{{ route('contents.destroyMany') }}",
+                url:"{{ route('services.destroyMany') }}",
                 data:{ids:ids},
             });
         });
 
     </script>
+
 @endsection

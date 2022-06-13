@@ -41,23 +41,7 @@
                                     <div class="social-media">
                                         <h6>
                                             SOCIAL MEDIA </h6>
-                                        <ul>
-                                            <li> <a href="https://webtasarimcistanbul.com/emlak/#" target="_blank"
-                                                    rel="noreferrer"> <i class="fab fa-facebook-f facebooksosyal"></i>
-                                                </a> </li>
-                                            <li> <a href="https://webtasarimcistanbul.com/emlak/#" target="_blank"
-                                                    rel="noreferrer"> <i class="fab fa-instagram instasosyal"></i> </a>
-                                            </li>
-                                            <li> <a href="https://webtasarimcistanbul.com/emlak/#" target="_blank"
-                                                    rel="noreferrer"> <i class="fab fa-youtube youtubesosyal"></i> </a>
-                                            </li>
-                                            <li> <a href="https://webtasarimcistanbul.com/emlak/#" target="_blank"
-                                                    rel="noreferrer"> <i class="fab fa-twitter twittersosyal"></i> </a>
-                                            </li>
-                                            <li> <a href="https://webtasarimcistanbul.com/emlak/#" target="_blank"
-                                                    rel="noreferrer"> <i class="fas fa-envelope mailsosyal"></i> </a>
-                                            </li>
-                                        </ul>
+
                                     </div>
                                     <!-- end social-media -->
                                 </div>
@@ -113,7 +97,11 @@
                             <div class="side-image-right wow fadeInUp"
                                  style="visibility: visible; animation-name: fadeInUp; margin-top:-20px;">
                                 <p style="font-size: 15px; ">
-                                    {{$homepages->whyframe_text}}
+                                    @foreach($contents as $c)
+                                        @if($c->name=='why-frame')
+                                            {!! $c->content !!}
+                                        @endif
+                                    @endforeach
                                     <br>
                                     <button id="makeAppointment" style="margin-top:20px" class="learnmorebuton">{{__('make-an-appointment')}}</button>
                                 </p>
@@ -165,12 +153,8 @@
 
                                                 </div>
                                             </div>
-                                        </div><a class="vc_left vc_carousel-control"
-                                                 href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                                 data-slide="prev" style=""><span class="icon-prev"></span></a><a
-                                            class="vc_right vc_carousel-control"
-                                            href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                            data-slide="next" style="display: none;"><span class="icon-next"></span></a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +247,11 @@
                             <h3>
                                 {{__('have-you-met-frame-summer')}}</h3>
 
-                            <p> {{$homepages->redarea_text}} </p>
+                            @foreach($contents as $c)
+                                @if($c->name=='redarea')
+                                    {!! $c->content !!}
+                                @endif
+                            @endforeach
 
 
                             <div style="display: flex; ">
@@ -284,9 +272,9 @@
 
                             </div>
                             <div style="margin-top: 10px; display: flex; line-height: 0px;">
-                                <a href="{{route('rent')}}"><i class="fa fa-search"></i> {{__('residential')}}</a>
+                                <a href=""><i class="fa fa-search"></i> {{__('residential')}}</a>
                                 <a style="margin-left: 20px; background-color: transparent; border:2px solid #FFFFFF; color:#FFFFFF"
-                                   href="{{route('rent')}}"><i style="margin-right: 5px;" class="fa fa-search"></i>{{__('estate-management')}}</a>
+                                   href=""><i style="margin-right: 5px;" class="fa fa-search"></i>{{__('estate-management')}}</a>
                             </div>
                         </div>
                     </div>
@@ -330,9 +318,13 @@
                             </div>
                             <div class="side-image-right wow fadeInRight"
                                  style="visibility: visible; animation-name: fadeInRight;">
-                                <p>{{$homepages->frameist_text}}</p>
+                                @foreach($contents as $c)
+                                    @if($c->name=='frame-ist')
+                                        {!! $c->content !!}
+                                    @endif
+                                @endforeach
                                 <p><br>
-                                    <a href="{{route('rent')}}" style="color:white" class="learnmorebuton">{{__('properties')}}</a>
+                                    <a href="" style="color:white" class="learnmorebuton">{{__('properties')}}</a>
                                 </p>
                                 <p>&nbsp;</p>
 
@@ -402,12 +394,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><a class="vc_left vc_carousel-control"
-                                             href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                             data-slide="prev" style=""><span class="icon-prev"></span></a><a
-                                        class="vc_right vc_carousel-control"
-                                        href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                        data-slide="next" style="display: none;"><span class="icon-next"></span></a>
+                                    </div>
                                 </div>
                                 <!--       <div class="wpb_wrapper" style=" margin-top: 14px">
                                     <div class="vc_slide vc_images_carousel vc_per-view-more  vc_build">
@@ -503,11 +490,13 @@
                             <div class="side-image-right wow fadeInRight"
                                  style="visibility: visible; animation-name: fadeInRight; margin-top: -29px;">
 
-                                <p> {{$homepages->framebodrum_text}}
+                                @foreach($contents as $c)
+                                    @if($c->name=='frame-bodrum')
+                                        {!! $c->content !!}
+                                    @endif
+                                @endforeach
 
-                                </p>
-
-                                <a href="{{route('rentBodrum')}}" style=""
+                                <a href="" style=""
                                         class="bodrumbutton">{{__('properties')}}</a>
 
                             </div>
@@ -586,12 +575,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><a class="vc_left vc_carousel-control"
-                                             href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                             data-slide="prev" style=""><span class="icon-prev"></span></a><a
-                                        class="vc_right vc_carousel-control"
-                                        href="https://webtasarimcistanbul.com/emlak/#vc_images-carousel-1-1642852275"
-                                        data-slide="next" style="display: none;"><span class="icon-next"></span></a>
+                                    </div>
+
                                 </div>
                                 <!--       <div class="wpb_wrapper" style=" margin-top: 14px">
                                     <div class="vc_slide vc_images_carousel vc_per-view-more  vc_build">
@@ -1145,10 +1130,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/3.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1176,10 +1158,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/5.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1204,10 +1183,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/6.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1235,11 +1211,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="530" height="795"
-                                                                 src="./src/WhatsApp-Image-2021-12-13-at-18.09.50.jpeg"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-13-at-18.09.50.jpeg 530w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-13-at-18.09.50-200x300.jpeg 200w"
-                                                                 sizes="(max-width: 530px) 100vw, 530px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1266,10 +1238,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/1.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1297,10 +1266,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/3.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1327,10 +1293,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/5.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/5-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1354,10 +1317,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/6.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/6-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1385,11 +1345,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="530" height="795"
-                                                                 src="./src/WhatsApp-Image-2021-12-13-at-18.09.50.jpeg"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-13-at-18.09.50.jpeg 530w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/WhatsApp-Image-2021-12-13-at-18.09.50-200x300.jpeg 200w"
-                                                                 sizes="(max-width: 530px) 100vw, 530px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1416,10 +1372,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/1.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/1-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1447,10 +1400,7 @@
                                                     </div>
                                                     <div class="author">
                                                         <div class="testimonial-avatar">
-                                                            <img width="760" height="760" src="./src/3.png"
-                                                                 class="attachment-full size-full" alt="" loading="lazy"
-                                                                 srcset="https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3.png 760w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-300x300.png 300w, https://webtasarimcistanbul.com/emlak/wp-content/uploads/2021/12/3-150x150.png 150w"
-                                                                 sizes="(max-width: 760px) 100vw, 760px">
+
                                                         </div>
                                                         <div class="testimonial-name">
                                                             <h1></h1>
@@ -1554,7 +1504,7 @@
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <form action="{{route('home')}}" method="post">
+                        <form action="" method="post">
                             @csrf
                             <div>
                                 <label for="#">Adınız Soyadınız</label>

@@ -11,5 +11,6 @@ interface ICrudService
     public function delete($model,$id);
     public function deleteMany($model,$ids);
     public function update($model,$id,$data);
+    public function findWithMenuId($model,$id,$lId);
 
 }

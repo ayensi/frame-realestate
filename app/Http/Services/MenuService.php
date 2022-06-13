@@ -18,4 +18,9 @@ class MenuService implements IMenuService
     {
         $this->menuRepository->orderUpdate($id,$order);
     }
+
+    public function findWithSlug($slug)
+    {
+        return $this->menuRepository->findWithSlug($slug);
+    }
 }

@@ -31,4 +31,10 @@ class Menu extends Model
     {
         return $this->belongsTo(Menu::class,'parentId');
     }
+    public function urls(){
+        return $this->hasMany(Url::class,'menu_id');
+    }
+    public function url(){
+        return $this->hasOne(Url::class,'menu_id');
+    }
 }

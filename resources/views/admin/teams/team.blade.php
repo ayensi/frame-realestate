@@ -7,10 +7,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2><b>İçerikler</b></h2>
+                        <h2><b>Ekip</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#yeniEkle" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni İçerik</span></a>
+                        <a href="#yeniEkle" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Yeni Ekip</span></a>
                         <a href="#CokluSilModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Sil</span></a>
                     </div>
                 </div>
@@ -25,33 +25,33 @@
 								<label for="selectAll"></label>
 							</span>
                     </th>
+                    <th>Resim</th>
                     <th>İsim</th>
-                    <th>Ait Olduğu Dil</th>
-                    <th>Ait Olduğu Menü</th>
-                    <th>İçerik</th>
-                    <th>Başlık</th>
-                    <th>Altmetin</th>
+                    <th>Etiket</th>
+                    <th>Mobil</th>
+                    <th>Ofis</th>
+                    <th>Email</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if(count($contents)>0)
-                    @foreach($contents as $c)
+                @if(count($teams)>0)
+                    @foreach($teams as $t)
                         <tr>
                             <td>
 							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" data-id="{{$c->id}}" value="1">
+								<input type="checkbox" id="checkbox1" name="options[]" data-id="{{$t->id}}" value="1">
 								<label for="checkbox1"></label>
 							</span>
                             </td>
-                            <td>{{$c->name}}</td>
-                            <td>{{$c->language->name}}</td>
-                            <td>{{$c->menu->name}}</td>
-                            <td>{{\Illuminate\Support\Str::limit($c->content, $limit = 150, $end = '...')}}</td>
-                            <td>{{$c->headline}}</td>
-                            <td>{{$c->subtext}}</td>
+                            <td>{{$t->image}}</td>
+                            <td>{{$t->name}}</td>
+                            <td>{{$t->tag}}</td>
+                            <td>{{$t->mobile}}</td>
+                            <td>{{$t->office}}</td>
+                            <td>{{$t->email}}</td>
                             <td>
-                                <a href="#DuzenleModal" id="{{$c->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
-                                <a href="#SilModal" class="Sil" id="{{$c->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
+                                <a href="#DuzenleModal" id="{{$t->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a href="#SilModal" class="Sil" id="{{$t->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -64,9 +64,9 @@
     </div>
     <!-- Ekle Modal HTML -->
     <div id="yeniEkle" class="modal fade">
-        <div class="modal-dialog" style="width: 100%;max-width: 1200px;">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('contents.store')}}">
+                <form method="post" action="{{route('teams.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt ekle</h4>
@@ -74,37 +74,29 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label>İsim</label>
                             <input name="name" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Ait Olduğu Dil</label>
-                            <select name="languageId" id="parentLanguage">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
-                                @endforeach
-                            </select>
+                            <label>Etiket</label>
+                            <input name="tag" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Ait Olduğu Menü</label>
-                            <select name="menuId" id="parentMenu">
-                                @foreach($menus as $m)
-                                    <option value="{{$m->id}}">{{$m->name}}</option>
-                                @endforeach
-                            </select>
+                            <label>Mobil</label>
+                            <input name="mobile" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>İçerik</label>
-                                <textarea class="ckeditor form-control" name="editortext"></textarea>
+                            <label>Ofis</label>
+                            <input name="office" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Başlık</label>
-                            <input class="form-control" type="text" name="headline">
+                            <label>Email</label>
+                            <input name="email" type="email" class="form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label>Altmetin</label>
-                            <input class="form-control" type="text" name="subtext">
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -114,12 +106,12 @@
             </div>
         </div>
     </div>
-    <!-- Duzenle Modal HTML -->
+
     <!-- Duzenle Modal HTML -->
     <div id="DuzenleModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('contents.update')}}">
+                <form method="post" action="{{route('teams.update')}}">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt düzenle</h4>
@@ -131,32 +123,8 @@
                             <input name="name" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Ait Olduğu Dil</label>
-                            <select name="languageId" id="parentLanguage">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Ait Olduğu Menü</label>
-                            <select name="menuId" id="parentMenu">
-                                @foreach($menus as $m)
-                                    <option value="{{$m->id}}">{{$m->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>İçerik</label>
-                            <textarea class="ckeditor form-control" name="editortext"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Başlık</label>
-                            <input class="form-control" type="text" name="headline">
-                        </div>
-                        <div class="form-group">
-                            <label>Altmetin</label>
-                            <input class="form-control" type="text" name="subtext">
+                            <label>Kısaltma</label>
+                            <input name="slug" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -172,7 +140,7 @@
     <div id="SilModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{route('contents.destroy')}}" method="post">
+                <form action="{{route('teams.destroy')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt Sil</h4>
@@ -194,7 +162,7 @@
     <div id="CokluSilModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{route('contents.destroyMany')}}" method="post">
+                <form action="{{route('teams.destroyMany')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt Sil</h4>
@@ -217,12 +185,6 @@
 
 @endsection
 @section('js')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
     <script>
         $(document).ready(function(){
             // Activate tooltip
@@ -269,7 +231,7 @@
 
             $.ajax({
                 type:'POST',
-                url:"{{ route('contents.destroyMany') }}",
+                url:"{{ route('teams.destroyMany') }}",
                 data:{ids:ids},
             });
         });

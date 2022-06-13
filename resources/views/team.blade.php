@@ -19,14 +19,14 @@
             <div class="row">
                 @forelse($teams as $team)
                 <div class="col-md-6">
-                    <figure><img src={{asset('storage/'.$team->team_image)}} alt="Image">
+                    <figure><img src={{asset('storage/'.$team->image)}} alt="Image">
                         <figcaption style="padding-left: 10px;">
-                            <h4>{{$team->team_name}}</h4>
-                            <small>{{$team->team_tag}}</small>
+                            <h4>{{$team->name}}</h4>
+                            <small>{{$team->tag}}</small>
                             <ul>
-                                <li><a href="#"><span>mobil:</span>{{$team->team_mobil}}</a></li>
-                                <li><a href="#"><span>office:</span> {{$team->team_office}}</a></li>
-                                <li><a href="#"><span>e-mail:</span> {{$team->team_email}}</a></li>
+                                <li><a href="#"><span>mobil:</span>{{$team->mobile}}</a></li>
+                                <li><a href="#"><span>office:</span> {{$team->office}}</a></li>
+                                <li><a href="#"><span>e-mail:</span> {{$team->email}}</a></li>
                                 <li><a href="mailto:{{$team->team_email}}"
                                        style="background-color: #DC2133; color: white; padding-left: 5px; padding-right: 5px;">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'E-Mail Gönder' : 'Send E-Mail'}}</a></li>
                             </ul>

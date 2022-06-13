@@ -27,6 +27,15 @@ class ContentController extends Controller
         $languages = $this->crudService->findAll(Language::class);
         return view('admin.contents.content',with(compact('contents','menus','languages')));
     }
+
+    public function update(Request $request){
+        $data = array_filter($request->except(['_token','languageId','menuId']));
+        $data['menu_id'] = $request->menuId;
+        $data['language_id'] = $request->languageId;
+        $this->crudService->update(Content::class,$request->id,$data);
+        return redirect(route('contents.index'));
+    }
+
     public function store(Request $request){
         $request->validate([
             'name' => 'required',

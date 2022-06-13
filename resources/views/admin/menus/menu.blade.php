@@ -114,7 +114,7 @@
     <div id="yeniEkle" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('menus.store')}}">
+                <form method="post" action="{{route('menus.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt ekle</h4>
@@ -158,7 +158,7 @@
     <div id="DuzenleModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" action="{{route('menus.update')}}">
+                <form method="post" action="{{route('menus.update')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h4 class="modal-title">Kayıt düzenle</h4>
@@ -171,7 +171,23 @@
                         </div>
                         <div class="form-group">
                             <label>Kısaltma</label>
-                            <input name="slug" type="text" class="form-control">
+                            <input name="slug" type="text" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alt menü mü?</label>
+                            <input id="isSubCheck" type="checkbox" class="form-control">
+                            <input id="isSubCheckData" name="isSubMenu" type="hidden" class="form-control">
+                        </div>
+                        <div style="display: none" id="select-div" class="form-group">
+                            <label>Üst menü seçin: </label>
+                            <select name="parentId" id="parentMenus">
+                                @foreach($menus as $m)
+                                    <option value="{{$m->id}}">{{$m->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

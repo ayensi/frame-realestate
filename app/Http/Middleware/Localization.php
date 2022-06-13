@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\App;
 
-class Localize
+class Localization
 {
     /**
      * Handle an incoming request.
@@ -17,18 +17,9 @@ class Localize
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!in_array($request->locale, config('app.supported_locales'))) {
-            $base = url()->to('');
-            $path = str_replace($base, '', $request->fullUrl());
-
-            return redirect()->to($base . '/' . $path);
+        if (session()->has('locale')) {
+            App::setlocale(session()->get('locale'));
         }
-
-        app()->setLocale($request->locale);
-
-        URL::defaults(['locale' => $request->locale]);
-
-
         return $next($request);
     }
 }

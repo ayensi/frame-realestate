@@ -48,4 +48,9 @@ class CrudService implements ICrudService
     {
         return $this->crudRepository->findOne($model,$id);
     }
+
+    public function findWithMenuId($model, $id,$lId)
+    {
+        return $this->crudRepository->findWithMenuId($model,$id,$lId);
+    }
 }
