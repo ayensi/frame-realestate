@@ -235,11 +235,10 @@
     <section style="padding:220px 0" class="content-section">
         <div class="vc_row wpb_row vc_row-fluid vc_custom_1642545372755 vc_row-has-fill">
             <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class="vc_column-inner">
+                <div class="vc_column-inner" style="background-image: url('https://framegayrimenkul.com/src/bodrum.jpeg')">
                     <div class="wpb_wrapper">
                         <div class="consultation-box wow fadeInLeftBig"
-                             style="visibility: visible; animation-name: fadeInLeftBig;
-                             background-image: url("/src/")">
+                             style="visibility: visible; animation-name: fadeInLeftBig; ">
 
                             <h4>
                                 <em>{{__('property-management')}} </em>
