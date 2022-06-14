@@ -19,7 +19,7 @@
             <div class="row">
                 @forelse($teams as $team)
                 <div class="col-md-6">
-                    <figure><img src={{asset('storage/'.$team->image)}} alt="Image">
+                    <figure><img src={{asset('/images/'.$team->image)}} alt="Image">
                         <figcaption style="padding-left: 10px;">
                             <h4>{{$team->name}}</h4>
                             <small>{{$team->tag}}</small>

@@ -29,5 +29,12 @@
     "frame-istanbul": "FRAME ISTANBUL",
     "frame-bodrum": "FRAME BODRUM",
     "frame-london": "FRAME LONDRA",
-    "team": "EKİBİMİZ"
+    "team": "EKİBİMİZ",
+    "welcome_text": "FRAME GAYRİMENKUL DANIŞMANLIK",
+    "slider_text": "Gayrimenkul sektöründe yurtiçi ve yurtdışından en doğru ve getirisi en yüksek yatırım kararları aldırması ile tanınan Frame Gayrimenkul, prestijli ve seçici portföyleri ile müşterilerine özel, bilgili, hızlı ve güvene dayalı hizmetler sunuyor. Alım, satım, kiralama , danışmanlık ve \"Mülk Yönetimi\" için bizimle çalışabilirsiniz.",
+    "consent": "Frame Gayrimenkul'ün mail yolu vasıtasıyla benimle iletişime geçmesine izin veriyorum.",
+    "yourmail": "Email Adresiniz",
+    "yourname": "Adınız",
+    "send": "Gönder"
+
 }

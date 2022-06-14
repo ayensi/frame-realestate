@@ -13,15 +13,15 @@
                                  style="transform: translate3d(-7635px, 0px, 0px); transition: all 0ms ease 0s;">
                                @forelse($sliders as $slider)
                                     <div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next"
-                                         data-background="{{asset('storage/'.$slider->slider_background)}}" data-stellar-background-ratio="1.15"
+                                         data-background="{{asset('images/'.$slider->image)}}" data-stellar-background-ratio="1.15"
                                          data-swiper-slide-index="0"
-                                         style="background-image: url(./src/sliderRumeli.jpeg); ">
+                                         >
                                         <div class="container">
                                             <h1>
-                                                {{$slider->slider_welcome}}
+                                                {{__($slider->welcome_text)}}
                                             </h1>
                                             <h4 style="color:white;">
-                                             {{$slider->slider_text}}
+                                             {{__($slider->slider_text)}}
 
                                             </h4>
                                             <figure><img src=""
@@ -68,7 +68,7 @@
 
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper   vc_box_border_grey"><img
-                                                                                                   width="736" height="950px" src="./src/ofisbuyuk.png"
+                                                                                                    height="950px" src="/src/ofisbuyuk.png"
                                                                                                    class="vc_single_image-img attachment-full" alt="" loading="lazy"
                                                                                                    sizes="(max-width: 736px) 100vw, 736px"></div>
                                 </figure>
@@ -130,24 +130,24 @@
                                     <div style="margin-top: 5px;"
                                          class="vc_slide vc_images_carousel vc_per-view-more vc_per-view-3 vc_build">
                                         <div class="">
-                                            <div class="" style="width: 2448px;">
-                                                <div class="" style="left: -25%; display: flex;">
+                                            <div class="">
+                                                <div class="" style="left: -25%; display: flex; width: 0px">
 
                                                     <div class="vc_item" style=" height: 120.812px; ">
                                                         <div class="vc_inner"><img height="1562"
-                                                                                   src="./src/ofis3.jpeg" class="attachment-full" alt=""
+                                                                                   src="/src/ofis3.jpeg" class="attachment-full" alt=""
                                                                                    loading="lazy"></div>
                                                     </div>
 
                                                     <div class="vc_item"
                                                          style=" height: 120.812px; margin-left: 20px;">
                                                         <div class="vc_inner"><img  height="1562"
-                                                                                   src="./src/ofis2.jpeg" class="attachment-full" alt=""
+                                                                                   src="/src/ofis2.jpeg" class="attachment-full" alt=""
                                                                                    loading="lazy"></div>
                                                     </div>
                                                     <div class="vc_item"
                                                          style=" height: 120.812px; margin-left: 20px;">
-                                                        <div class="vc_inner"><img src="./src/ofis1.jpg"
+                                                        <div class="vc_inner"><img src="/src/ofis1.jpg"
                                                                                    class="attachment-full" alt="" loading="lazy"></div>
                                                     </div>
 
@@ -237,8 +237,9 @@
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner">
                     <div class="wpb_wrapper">
-                        <div style="padding: 45px" class="consultation-box wow fadeInLeftBig"
-                             style="visibility: visible; animation-name: fadeInLeftBig;">
+                        <div class="consultation-box wow fadeInLeftBig"
+                             style="visibility: visible; animation-name: fadeInLeftBig;
+                             background-image: url("/src/")">
 
                             <h4>
                                 <em>{{__('property-management')}} </em>
@@ -292,7 +293,7 @@
 
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper   vc_box_border_grey"><img style="height:371px"
-                                                                                                   class="vc_single_image-img " src="./src/proprtyist.jpeg" width="500"
+                                                                                                   class="vc_single_image-img " src="/src/proprtyist.jpeg"
                                                                                                    height="600" alt="WhatsApp Image 2021-12-13 at 18.07.19"
                                                                                                    title="WhatsApp Image 2021-12-13 at 18.07.19"></div>
                                 </figure>
@@ -353,44 +354,17 @@
                                         <div class="vc_carousel-inner">
                                             <div class="vc_carousel-slideline" style="width: 2246px;">
                                                 <div class="vc_carousel-slideline-inner" style="margin-left: -7px;">
-
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/istinye.jpeg" class="attachment-full" alt=""
-                                                                                   loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                İstinye</p>
+                                                    @for($i = 0;$i<4;$i++)
+                                                        <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
+                                                            <div class="vc_inner"><img width="2340" height="1562"
+                                                                                       src="{{asset('/images/'.$homepageimages[$i]->image)}}" class="attachment-full" alt=""
+                                                                                       loading="lazy">
+                                                                <p
+                                                                    style="background-color: black; color: white; text-align: center;">
+                                                                    {{$homepageimages[$i]->text}}</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/yeniköy.jpeg" class="attachment-full" alt=""
-                                                                                   loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Yeniköy</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/tarabya.jpeg" class="attachment-full" alt=""
-                                                                                   loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Tarabya</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/bebek.jpeg" class="attachment-full" alt=""
-                                                                                   loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Bebek</p>
-                                                        </div>
-                                                    </div>
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -510,7 +484,7 @@
 
                                 <figure class="wpb_wrapper vc_figure">
                                     <div class="vc_single_image-wrapper   vc_box_border_grey"><img style="height:371px"
-                                                                                                   class="vc_single_image-img " src="./src/bodrumm.jpeg" width="500"
+                                                                                                   class="vc_single_image-img " src="/src/bodrumm.jpeg"
                                                                                                    height="600" alt="WhatsApp Image 2021-12-13 at 18.07.19"
                                                                                                    title="WhatsApp Image 2021-12-13 at 18.07.19"></div>
                                 </figure>
@@ -535,43 +509,17 @@
                                             <div class="vc_carousel-slideline" style="width: 1993px;">
                                                 <div class="vc_carousel-slideline-inner" style="margin-left: -17px;">
 
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/bodrumprop.jpeg" class="attachment-full"
-                                                                                   alt="" loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Türkbükü</p>
+                                                    @for($i = 4;$i<8;$i++)
+                                                        <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
+                                                            <div class="vc_inner"><img width="2340" height="1562"
+                                                                                       src="{{asset('/images/'.$homepageimages[$i]->image)}}" class="attachment-full" alt=""
+                                                                                       loading="lazy">
+                                                                <p
+                                                                    style="background-color: black; color: white; text-align: center;">
+                                                                    {{$homepageimages[$i]->text}}</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/cesmeprop.jpeg" class="attachment-full"
-                                                                                   alt="" loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Gündoğan</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/fethiyeprop.jpeg" class="attachment-full"
-                                                                                   alt="" loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Yalıkavak</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
-                                                                                   src="./src/urlaprop.jpeg" class="attachment-full" alt=""
-                                                                                   loading="lazy">
-                                                            <p
-                                                                style="background-color: black; color: white; text-align: center;">
-                                                                Bitez</p>
-                                                        </div>
-                                                    </div>
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -795,7 +743,7 @@
                                                                                                                         id="nf-field-5"
                                                                                                                         name="fname"
                                                                                                                         autocomplete="given-name"
-                                                                                                                        placeholder="Adınız"
+                                                                                                                        placeholder="{{__('yourname')}}"
                                                                                                                         aria-invalid="false"
                                                                                                                         aria-describedby="nf-error-5"
                                                                                                                         aria-labelledby="nf-label-field-5">
@@ -863,7 +811,7 @@
                                                                                                                         id="nf-field-7"
                                                                                                                         name="email"
                                                                                                                         autocomplete="email"
-                                                                                                                        placeholder="Mail Adresiniz"
+                                                                                                                        placeholder="{{__('yourmail')}}"
                                                                                                                         aria-invalid="false"
                                                                                                                         aria-describedby="nf-error-7"
                                                                                                                         aria-labelledby="nf-label-field-7">
@@ -918,7 +866,7 @@
                                                                                                                         id="nf-field-8"
                                                                                                                         class="ninja-forms-field nf-element "
                                                                                                                         type="button"
-                                                                                                                        value="Gönder">
+                                                                                                                        value="{{__("send")}}">
                                                                                                                 </div>
                                                                                                                 <div
                                                                                                                     class="nf-error-wrap">
@@ -974,18 +922,8 @@
                                                                                                                     <label
                                                                                                                         for="nf-field-9"
                                                                                                                         id="nf-label-field-9"
-                                                                                                                        class="">I
-                                                                                                                        Frame
-                                                                                                                        Gayrimenkul'ün
-                                                                                                                        mail
-                                                                                                                        yolu
-                                                                                                                        vasıtasıyla
-                                                                                                                        benimle
-                                                                                                                        iletişime
-                                                                                                                        geçmesine
-                                                                                                                        izin
-                                                                                                                        veriyorum
-                                                                                                                        .
+                                                                                                                        class="">
+                                                                                                                        {{__('consent')}}
                                                                                                                     </label>
                                                                                                                 </div>
 

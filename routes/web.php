@@ -73,8 +73,24 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         Route::post('/delete',[\App\Http\Controllers\ServiceController::class,'destroy'])->name('services.destroy');
         Route::post('/deleteMany',[\App\Http\Controllers\ServiceController::class,'destroyMany'])->name('services.destroyMany');
         Route::post('/orderEdit',[\App\Http\Controllers\ServiceController::class,'orderUpdate'])->name('services.orderUpdate');
-
     });
+    Route::prefix('/sliders')->group(function (){
+        Route::get('/',[\App\Http\Controllers\SliderController::class,'index'])->name('sliders.index');
+        Route::post('/create',[\App\Http\Controllers\SliderController::class,'store'])->name('sliders.store');
+        Route::post('/edit',[\App\Http\Controllers\SliderController::class,'update'])->name('sliders.update');
+        Route::post('/delete',[\App\Http\Controllers\SliderController::class,'destroy'])->name('sliders.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\SliderController::class,'destroyMany'])->name('sliders.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\SliderController::class,'orderUpdate'])->name('sliders.orderUpdate');
+    });
+    Route::prefix('/homepageimages')->group(function (){
+        Route::get('/',[\App\Http\Controllers\HomepageImageController::class,'index'])->name('homepageimages.index');
+        Route::post('/create',[\App\Http\Controllers\HomepageImageController::class,'store'])->name('homepageimages.store');
+        Route::post('/edit',[\App\Http\Controllers\HomepageImageController::class,'update'])->name('homepageimages.update');
+        Route::post('/delete',[\App\Http\Controllers\HomepageImageController::class,'destroy'])->name('homepageimages.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\HomepageImageController::class,'destroyMany'])->name('homepageimages.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\HomepageImageController::class,'orderUpdate'])->name('homepageimages.orderUpdate');
+    });
+
 });
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 

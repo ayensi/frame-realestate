@@ -269,6 +269,14 @@ return [
             'text' => 'services',
             'url'  => 'admin/services',
             'icon' => 'fas fa-fw fa-hammer',
+        ],[
+            'text' => 'Slider',
+            'url'  => 'admin/sliders',
+            'icon' => 'fas fa-fw fa-image',
+        ],[
+            'text' => 'Anasayfa Resimler',
+            'url'  => 'admin/homepageimages',
+            'icon' => 'fas fa-fw fa-image',
         ],
 
     ],

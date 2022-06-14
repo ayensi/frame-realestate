@@ -8,8 +8,10 @@ use App\Http\Contracts\ILanguageService;
 use App\Http\Contracts\IMenuService;
 use App\Http\Contracts\IUrlService;
 use App\Models\Content;
+use App\Models\HomepageImage;
 use App\Models\Menu;
 use App\Models\Service;
+use App\Models\Slider;
 use App\Models\Team;
 use Hamcrest\FeatureMatcherTest;
 use Illuminate\Http\Request;
@@ -40,13 +42,14 @@ class HomeController extends Controller
         return redirect()->back();
     }
 public function home(){
+        $homepageimages = $this->crudService->findAll(HomepageImage::class);
     $language = App::getLocale();
-    $lId = $this->languageService->findWithLanguageCode($language);
-    $sliders=[];
+    $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
+    $sliders=$this->crudService->findAll(Slider::class);
     $contents = $this->crudService->findWithMenuId(Content::class,6,$lId);
     $menu = $this->crudService->findOne(Menu::class,6);
 
-    return view('home',with(compact('contents','menu','sliders')));
+    return view('home',with(compact('contents','menu','sliders','homepageimages')));
 }
     public function test($url){
         $language = App::getLocale();
@@ -64,9 +67,13 @@ public function home(){
             return view($page->menu->slug,with(compact('content','menu','services')));
         }
         if($page->menu->slug=="home"){
-            $sliders=[];
-            $contents = $this->crudService->findWithMenuId(Content::class,$page->menu->id,$lId);
-            return view($page->menu->slug,with(compact('contents','menu','sliders')));
+            $homepageimages = $this->crudService->findAll(HomepageImage::class);
+            $language = App::getLocale();
+            $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
+            $sliders=$this->crudService->findAll(Slider::class);
+            $contents = $this->crudService->findWithMenuId(Content::class,6,$lId);
+            $menu = $this->crudService->findOne(Menu::class,6);
+            return view('home',with(compact('contents','menu','sliders','homepageimages')));
         }
 
         return view($page->menu->slug,with(compact('content','menu')));

@@ -29,5 +29,11 @@
     "frame-istanbul": "FRAME ISTANBUL",
     "frame-bodrum": "FRAME BODRUM",
     "frame-london": "FRAME LONDON",
-    "team": "TEAM"
+    "team": "TEAM",
+    "welcome_text": "FRAME REAL ESTATE",
+    "slider_text": "We are a luxury real estate company in Istanbul providing high quality buy/sell/rent and consultancy services for prestigious clients. We also proud ourselves in giving excellent property management and life-style services in Bodrum",
+    "consent": "I allow Frame Gayrimenkul to contact me via e-mail.",
+    "yourmail": "Your Email Address",
+    "yourname": "Your Name",
+    "send": "Send"
 }
