@@ -58,5 +58,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IContentService::class, ContentService::class);
         $this->app->bind(ILanguageService::class, LanguageService::class);
         $this->app->bind(IUrlService::class, UrlService::class);
+        $this->app->register(LocalizationServiceProvider::class);
     }
 }

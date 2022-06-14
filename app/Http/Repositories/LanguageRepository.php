@@ -7,6 +7,6 @@ use App\Models\Language;
 class LanguageRepository
 {
     public function findWithLanguageCode($code){
-        return Language::where('slug',$code)->first()->id;
+        return Language::where('slug',$code)->first();
     }
 }

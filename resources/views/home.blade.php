@@ -133,20 +133,20 @@
                                             <div class="" style="width: 2448px;">
                                                 <div class="" style="left: -25%; display: flex;">
 
-                                                    <div class="vc_item" style="width: 7.33333%; height: 120.812px; ">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
+                                                    <div class="vc_item" style=" height: 120.812px; ">
+                                                        <div class="vc_inner"><img height="1562"
                                                                                    src="./src/ofis3.jpeg" class="attachment-full" alt=""
                                                                                    loading="lazy"></div>
                                                     </div>
 
                                                     <div class="vc_item"
-                                                         style="width: 7.33333%; height: 120.812px; margin-left: 20px;">
-                                                        <div class="vc_inner"><img width="2340" height="1562"
+                                                         style=" height: 120.812px; margin-left: 20px;">
+                                                        <div class="vc_inner"><img  height="1562"
                                                                                    src="./src/ofis2.jpeg" class="attachment-full" alt=""
                                                                                    loading="lazy"></div>
                                                     </div>
                                                     <div class="vc_item"
-                                                         style="width: 7.33333%; height: 120.812px; margin-left: 20px;">
+                                                         style=" height: 120.812px; margin-left: 20px;">
                                                         <div class="vc_inner"><img src="./src/ofis1.jpg"
                                                                                    class="attachment-full" alt="" loading="lazy"></div>
                                                     </div>

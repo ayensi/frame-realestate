@@ -15,6 +15,7 @@ use Hamcrest\FeatureMatcherTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class HomeController extends Controller
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $this->crudService = $crudService;
         $this->menuService = $menuService;
         $this->urlService = $urlService;
+
     }
     public function setLocale($language){
         LaravelLocalization::setLocale($language);
@@ -40,7 +42,6 @@ class HomeController extends Controller
 public function home(){
     $language = App::getLocale();
     $lId = $this->languageService->findWithLanguageCode($language);
-
     $sliders=[];
     $contents = $this->crudService->findWithMenuId(Content::class,6,$lId);
     $menu = $this->crudService->findOne(Menu::class,6);
@@ -49,7 +50,7 @@ public function home(){
 }
     public function test($url){
         $language = App::getLocale();
-        $lId = $this->languageService->findWithLanguageCode($language);
+        $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
         $page = $this->urlService->findMenuWithUrl($url);
         $content = $this->contentService->findWithMenuAndLanguage($page->menu->id,$lId);
         $contents = [];
