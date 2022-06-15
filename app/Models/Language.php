@@ -15,6 +15,9 @@ class Language extends Model
     public function contents(){
         return $this->hasMany(Content::class);
     }
+    public function properties(){
+        return $this->hasMany(Property::class);
+    }
     public function urls(){
         return $this->hasMany(Url::class,'language_id');
     }

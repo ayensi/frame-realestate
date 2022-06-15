@@ -21,6 +21,17 @@ Route::post('/admin/register', [\App\Http\Controllers\AdminController::class,'re
 Route::get('/admin/register', [\App\Http\Controllers\AdminController::class,'register'])->name('register');
 
 Route::prefix('/admin')->middleware('auth')->group(function () {
+
+    Route::get('/turkce',[\App\Http\Controllers\AdminController::class, 'turkceget'])->name('turkceget');
+    Route::post('/turkcecreate',[\App\Http\Controllers\AdminController::class, 'turkcestore'])->name('turkce.store');
+    Route::post('/turkceupdate',[\App\Http\Controllers\AdminController::class, 'turkceupdate'])->name('turkce.update');
+    Route::post('/turkcedestroy',[\App\Http\Controllers\AdminController::class, 'turkcestroy'])->name('turkce.destroy');
+    Route::get('/english',[\App\Http\Controllers\AdminController::class, 'englishget'])->name('englishget');
+    Route::post('/englishcreate',[\App\Http\Controllers\AdminController::class, 'englishstore'])->name('english.store');
+    Route::post('/englishupdate',[\App\Http\Controllers\AdminController::class, 'englishupdate'])->name('english.update');
+    Route::post('/englishdestroy',[\App\Http\Controllers\AdminController::class, 'englishdestroy'])->name('english.destroy');
+
+
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('logout');
     Route::prefix('/languages')->group(function () {

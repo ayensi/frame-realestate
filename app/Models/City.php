@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class City extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = [''];
+
+    public function districts(){
+        $this->hasMany(District::class);
+    }
 
     public function properties(){
         $this->hasMany(Property::class);

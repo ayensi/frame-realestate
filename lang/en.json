@@ -35,5 +35,10 @@
     "consent": "I allow Frame Gayrimenkul to contact me via e-mail.",
     "yourmail": "Your Email Address",
     "yourname": "Your Name",
-    "send": "Send"
-}
+    "send": "Send",
+ 	"test" : "test",
+ 	"test2" : "test2",
+ 	"test3" : "test3",
+ 	"test4" : "test4",
+ 	"repairing" : "Repairing"
+} 

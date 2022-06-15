@@ -278,6 +278,20 @@ return [
             'url'  => 'admin/homepageimages',
             'icon' => 'fas fa-fw fa-image',
         ],
+        [
+            'text'    => 'Metinler',
+            'icon'    => 'fas fa-fw fa-language',
+            'submenu' => [
+                [
+                    'text' => 'Türkçe',
+                    'url'  => 'admin/turkce',
+                ],
+                [
+                    'text' => 'İngilizce',
+                    'url'  => 'admin/english',
+                ],
+            ],
+        ]
 
     ],
 

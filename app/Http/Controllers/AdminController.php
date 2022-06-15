@@ -13,7 +13,65 @@ class AdminController extends Controller
     {
         $this->userService = $userService;
     }
+    public function writeJson($filename,$event){
+        // read the file if present
+        $handle = @fopen($filename, 'r+');
 
+// create the file if needed
+        if ($handle === null)
+        {
+            $handle = fopen($filename, 'w+');
+        }
+
+        if ($handle)
+        {
+            // seek to the end
+            fseek($handle, 0, SEEK_END);
+
+            // are we at the end of is the file empty
+            if (ftell($handle) > 0)
+            {
+                // move back a byte
+                fseek($handle, -3, SEEK_END);
+
+                // add the trailing comma
+                fwrite($handle, ",", 1);
+
+                // add the new json string
+                fwrite($handle, "\n \t".'"'.$event["key"].'"' . " : " .'"'. $event["value"].'"'."\n"."} ");
+            }
+            else
+            {
+                // write the first event inside an array
+                fwrite($handle, json_encode(array($event)));
+            }
+
+            // close the handle on the file
+            fclose($handle);
+        }
+    }
+    public function turkceget(){
+        $file = file_get_contents(base_path("/lang/tr.json"));
+        $obj = json_decode($file);
+        return view('admin.turkce',with(compact('obj')));
+    }
+    public function turkcestore(Request $request){
+        $data["key"] = $request->key;
+        $data["value"] = $request->value;
+        $this->writeJson(base_path('/lang/tr.json'),$data);
+        return redirect(route('turkceget'));
+    }
+    public function englishget(){
+        $file = file_get_contents(base_path("/lang/en.json"));
+        $obj = json_decode($file);
+        return view('admin.english',with(compact('obj')));
+    }
+    public function englishstore(Request $request){
+        $data["key"] = $request->key;
+        $data["value"] = $request->value;
+        $this->writeJson(base_path('/lang/en.json'),$data);
+        return redirect(route('englishget'));
+    }
     public function login(){
         if(Auth::check()){
             return redirect(route('dashboard'));
