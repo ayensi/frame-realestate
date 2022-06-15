@@ -12,10 +12,10 @@ class City extends Model
     protected $guarded = [''];
 
     public function districts(){
-        $this->hasMany(District::class);
+        return $this->hasMany(District::class);
     }
 
     public function properties(){
-        $this->hasMany(Property::class);
+        return $this->hasMany(Property::class);
     }
 }

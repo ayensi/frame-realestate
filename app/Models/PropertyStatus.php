@@ -12,6 +12,6 @@ class PropertyStatus extends Model
     protected $guarded = [''];
 
     public function properties(){
-        $this->hasMany(Property::class);
+        return $this->hasMany(Property::class);
     }
 }

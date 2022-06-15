@@ -23,5 +23,6 @@ return [
     'urls' => 'URLler',
     'team' => "Ekibimiz",
     'services' => "Hizmetlerimiz",
+    'properties' => "Portföyler",
 
 ];

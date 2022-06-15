@@ -9,30 +9,33 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $guarded = [''];
+    protected $guarded = ['id'];
+    protected $primaryKey = "id";
+    public $incrementing = true;
+
 
     public function images(){
-        $this->hasMany(Image::class);
+        return $this->hasMany(Image::class);
     }
     public function propertyStatus(){
-        $this->belongsTo(PropertyStatus::class);
+        return $this->belongsTo(PropertyStatus::class,'id');
     }
     public function city(){
-        $this->belongsTo(City::class);
+        return $this->belongsTo(City::class);
     }
     public function district(){
-        $this->belongsTo(District::class);
+        return $this->belongsTo(District::class);
     }
     public function estateType(){
-        $this->belongsTo(EstateType::class);
+        return $this->belongsTo(EstateType::class,'id');
     }
     public function team(){
-        $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class);
     }
     public function category(){
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
     public function language(){
-        $this->belongsTo(Language::class);
+        return $this->belongsTo(Language::class);
     }
 }

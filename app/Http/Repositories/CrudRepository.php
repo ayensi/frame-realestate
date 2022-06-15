@@ -37,4 +37,7 @@ class CrudRepository
         $model::where('id',$id)->update($data);
     }
 
+    public function paginateAll($model,$count){
+        return $model::paginate($count);
+    }
 }

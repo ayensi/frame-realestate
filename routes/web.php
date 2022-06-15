@@ -102,6 +102,69 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         Route::post('/orderEdit',[\App\Http\Controllers\HomepageImageController::class,'orderUpdate'])->name('homepageimages.orderUpdate');
     });
 
+    Route::prefix('/properties')->group(function (){
+        Route::get('/',[\App\Http\Controllers\PropertyController::class,'index'])->name('properties.index');
+        Route::post('/create',[\App\Http\Controllers\PropertyController::class,'store'])->name('properties.store');
+        Route::post('/edit',[\App\Http\Controllers\PropertyController::class,'update'])->name('properties.update');
+        Route::post('/delete',[\App\Http\Controllers\PropertyController::class,'destroy'])->name('properties.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\PropertyController::class,'destroyMany'])->name('properties.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\PropertyController::class,'orderUpdate'])->name('properties.orderUpdate');
+    });
+
+    Route::prefix('/categories')->group(function (){
+        Route::get('/',[\App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
+        Route::post('/create',[\App\Http\Controllers\CategoryController::class,'store'])->name('categories.store');
+        Route::post('/edit',[\App\Http\Controllers\CategoryController::class,'update'])->name('categories.update');
+        Route::post('/delete',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\CategoryController::class,'destroyMany'])->name('categories.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\CategoryController::class,'orderUpdate'])->name('categories.orderUpdate');
+    });
+
+    Route::prefix('/cities')->group(function (){
+        Route::get('/',[\App\Http\Controllers\CityController::class,'index'])->name('cities.index');
+        Route::post('/create',[\App\Http\Controllers\CityController::class,'store'])->name('cities.store');
+        Route::post('/edit',[\App\Http\Controllers\CityController::class,'update'])->name('cities.update');
+        Route::post('/delete',[\App\Http\Controllers\CityController::class,'destroy'])->name('cities.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\CityController::class,'destroyMany'])->name('cities.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\CityController::class,'orderUpdate'])->name('cities.orderUpdate');
+    });
+
+    Route::prefix('/districts')->group(function (){
+        Route::get('/',[\App\Http\Controllers\DistrictController::class,'index'])->name('districts.index');
+        Route::post('/create',[\App\Http\Controllers\DistrictController::class,'store'])->name('districts.store');
+        Route::post('/edit',[\App\Http\Controllers\DistrictController::class,'update'])->name('districts.update');
+        Route::post('/delete',[\App\Http\Controllers\DistrictController::class,'destroy'])->name('districts.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\DistrictController::class,'destroyMany'])->name('districts.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\DistrictController::class,'orderUpdate'])->name('districts.orderUpdate');
+    });
+
+    Route::prefix('/property_status')->group(function (){
+        Route::get('/',[\App\Http\Controllers\PropertyStatusController::class,'index'])->name('property_statuses.index');
+        Route::post('/create',[\App\Http\Controllers\PropertyStatusController::class,'store'])->name('property_statuses.store');
+        Route::post('/edit',[\App\Http\Controllers\PropertyStatusController::class,'update'])->name('property_statuses.update');
+        Route::post('/delete',[\App\Http\Controllers\PropertyStatusController::class,'destroy'])->name('property_statuses.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\PropertyStatusController::class,'destroyMany'])->name('property_statuses.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\PropertyStatusController::class,'orderUpdate'])->name('property_statuses.orderUpdate');
+    });
+
+    Route::prefix('/estate_types')->group(function (){
+        Route::get('/',[\App\Http\Controllers\EstateTypeController::class,'index'])->name('estate_types.index');
+        Route::post('/create',[\App\Http\Controllers\EstateTypeController::class,'store'])->name('estate_types.store');
+        Route::post('/edit',[\App\Http\Controllers\EstateTypeController::class,'update'])->name('estate_types.update');
+        Route::post('/delete',[\App\Http\Controllers\EstateTypeController::class,'destroy'])->name('estate_types.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\EstateTypeController::class,'destroyMany'])->name('estate_types.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\EstateTypeController::class,'orderUpdate'])->name('estate_types.orderUpdate');
+    });
+
+    Route::prefix('/property_images')->group(function (){
+        Route::get('/',[\App\Http\Controllers\PropertyImageController::class,'index'])->name('property_images.index');
+        Route::post('/create',[\App\Http\Controllers\PropertyImageController::class,'store'])->name('property_images.store');
+        Route::post('/edit',[\App\Http\Controllers\PropertyImageController::class,'update'])->name('property_images.update');
+        Route::post('/delete',[\App\Http\Controllers\PropertyImageController::class,'destroy'])->name('property_images.destroy');
+        Route::post('/deleteMany',[\App\Http\Controllers\PropertyImageController::class,'destroyMany'])->name('property_images.destroyMany');
+        Route::post('/orderEdit',[\App\Http\Controllers\PropertyImageController::class,'orderUpdate'])->name('property_images.orderUpdate');
+    });
+
 });
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 

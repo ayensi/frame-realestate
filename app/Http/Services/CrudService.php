@@ -53,4 +53,9 @@ class CrudService implements ICrudService
     {
         return $this->crudRepository->findWithMenuId($model,$id,$lId);
     }
+
+    public function paginateAll($model, $count)
+    {
+        return $this->crudRepository->paginateAll($model,$count);
+    }
 }

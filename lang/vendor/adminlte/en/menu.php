@@ -23,6 +23,7 @@ return [
     'urls' => 'URLs',
     'team' => "Team",
     'services' => "Services",
+    'properties' => "Properties",
 
 
 ];

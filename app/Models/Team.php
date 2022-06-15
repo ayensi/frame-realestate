@@ -12,6 +12,6 @@ class Team extends Model
     protected $guarded = ['id'];
 
     public function properties(){
-        $this->hasMany(Property::class);
+        return $this->hasMany(Property::class);
     }
 }

@@ -243,6 +243,12 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+        ['header' => 'properties'],
+        [
+            'text' => 'properties',
+            'url'  => 'admin/properties',
+            'icon' => 'fas fa-fw fa-home',
+        ],
         ['header' => 'content'],
         [
             'text' => 'languages',
@@ -291,7 +297,33 @@ return [
                     'url'  => 'admin/english',
                 ],
             ],
-        ]
+        ],
+        ['header' => 'Alanlar'],
+        [
+            'text' => 'Şehirler',
+            'url'  => 'admin/cities',
+            'icon' => 'fas fa-fw fa-city',
+        ],
+        [
+            'text' => 'İlçeler',
+            'url'  => 'admin/districts',
+            'icon' => 'fas fa-fw fa-city',
+        ],
+        [
+            'text' => 'Kategoriler',
+            'url'  => 'admin/categories',
+            'icon' => 'fas fa-fw fa-bars',
+        ],
+        [
+            'text' => 'Mülk Durumları',
+            'url'  => 'admin/property_status',
+            'icon' => 'fas fa-fw fa-city',
+        ],
+        [
+            'text' => 'Gayrimenkul Tipleri',
+            'url'  => 'admin/estate_types',
+            'icon' => 'fas fa-fw fa-city',
+        ],
 
     ],
 
