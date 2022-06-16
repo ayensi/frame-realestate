@@ -12,6 +12,7 @@ interface ICrudService
     public function deleteMany($model,$ids);
     public function update($model,$id,$data);
     public function findWithMenuId($model,$id,$lId);
-    public function paginateAll($model,$count);
+    public function paginateAll($model,$count,$id);
+    public function withCityId($model,$city_id);
 
 }

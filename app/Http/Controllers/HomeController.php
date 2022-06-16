@@ -6,10 +6,12 @@ use App\Http\Contracts\IContentService;
 use App\Http\Contracts\ICrudService;
 use App\Http\Contracts\ILanguageService;
 use App\Http\Contracts\IMenuService;
+use App\Http\Contracts\IPropertyService;
 use App\Http\Contracts\IUrlService;
 use App\Models\Content;
 use App\Models\HomepageImage;
 use App\Models\Menu;
+use App\Models\Property;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Team;
@@ -27,13 +29,15 @@ class HomeController extends Controller
     private ILanguageService $languageService;
     private IMenuService $menuService;
     private IUrlService $urlService;
-    public function __construct(IContentService $contentService,ILanguageService $languageService,ICrudService $crudService,IMenuService $menuService,IUrlService $urlService)
+    private IPropertyService $propertyService;
+    public function __construct(IContentService $contentService,ILanguageService $languageService,ICrudService $crudService,IMenuService $menuService,IUrlService $urlService,IPropertyService $propertyService)
     {
         $this->contentService = $contentService;
         $this->languageService = $languageService;
         $this->crudService = $crudService;
         $this->menuService = $menuService;
         $this->urlService = $urlService;
+        $this->propertyService = $propertyService;
 
     }
     public function setLocale($language){
@@ -51,7 +55,7 @@ public function home(){
 
     return view('home',with(compact('contents','menu','sliders','homepageimages')));
 }
-    public function test($url){
+    public function page($url){
         $language = App::getLocale();
         $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
         $page = $this->urlService->findMenuWithUrl($url);
@@ -75,7 +79,33 @@ public function home(){
             $menu = $this->crudService->findOne(Menu::class,6);
             return view('home',with(compact('contents','menu','sliders','homepageimages')));
         }
-
+        if($url == "properties" || $url == "portfoylerimiz"){
+            $language = App::getLocale();
+            $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
+            $properties = $this->propertyService->findAllWithLanguageId($lId);
+            if(count($properties)==0){
+                $properties = $this->crudService->findAll(Property::class);
+            }
+            return view('properties',with(compact('properties')));
+        }
+        if($url == "frame-bodrum"){
+            $language = App::getLocale();
+            $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
+            $properties = $this->propertyService->findAllWithLanguageIdAndCityId($lId,2);
+            if(count($properties)==0){
+                $properties = $this->crudService->withCityId(Property::class,2);
+            }
+            return view('properties',with(compact('properties')));
+        }
+        if($url == "frame-istanbul"){
+            $language = App::getLocale();
+            $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
+            $properties = $this->propertyService->findAllWithLanguageIdAndCityId($lId,1);
+            if(count($properties)==0){
+                $properties = $this->crudService->withCityId(Property::class,1);
+            }
+            return view('properties',with(compact('properties')));
+        }
         return view($page->menu->slug,with(compact('content','menu')));
 
     }

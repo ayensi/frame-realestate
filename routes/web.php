@@ -109,6 +109,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         Route::post('/delete',[\App\Http\Controllers\PropertyController::class,'destroy'])->name('properties.destroy');
         Route::post('/deleteMany',[\App\Http\Controllers\PropertyController::class,'destroyMany'])->name('properties.destroyMany');
         Route::post('/orderEdit',[\App\Http\Controllers\PropertyController::class,'orderUpdate'])->name('properties.orderUpdate');
+        Route::get('/getOne',[\App\Http\Controllers\PropertyController::class,'getOne'])->name('properties.getOne');
     });
 
     Route::prefix('/categories')->group(function (){
@@ -136,6 +137,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         Route::post('/delete',[\App\Http\Controllers\DistrictController::class,'destroy'])->name('districts.destroy');
         Route::post('/deleteMany',[\App\Http\Controllers\DistrictController::class,'destroyMany'])->name('districts.destroyMany');
         Route::post('/orderEdit',[\App\Http\Controllers\DistrictController::class,'orderUpdate'])->name('districts.orderUpdate');
+        Route::post('/getDistricts',[\App\Http\Controllers\DistrictController::class,'getDistricts'])->name('districts.getDistricts');
     });
 
     Route::prefix('/property_status')->group(function (){
@@ -169,7 +171,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect'])->group(function () {
-    Route::get('/{url}', [\App\Http\Controllers\HomeController::class, 'test'])->name('page');
+    Route::get('/{url}', [\App\Http\Controllers\HomeController::class, 'page'])->name('page');
 
 });
     Route::get('/setLocale/{language}',[\App\Http\Controllers\HomeController::class,'setLocale'])->name('setLocale');

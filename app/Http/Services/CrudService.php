@@ -54,8 +54,13 @@ class CrudService implements ICrudService
         return $this->crudRepository->findWithMenuId($model,$id,$lId);
     }
 
-    public function paginateAll($model, $count)
+    public function paginateAll($model, $count,$id)
     {
-        return $this->crudRepository->paginateAll($model,$count);
+        return $this->crudRepository->paginateAll($model,$count,$id);
+    }
+
+    public function withCityId($model, $city_id)
+    {
+        return $this->crudRepository->withCityId($model,$city_id);
     }
 }

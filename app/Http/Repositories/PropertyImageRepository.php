@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 use App\Http\Contracts\ICrudService;
 use App\Models\Property;
 use App\Models\PropertyImage;
+use Illuminate\Support\Str;
 
 class PropertyImageRepository
 {
@@ -15,19 +16,21 @@ class PropertyImageRepository
     }
 
     public function saveImages($request,$property){
+        $images = [];
         if($request->hasfile('images'))
         {
             foreach($request->file('images') as $image) {
+                $imageName = time().'.'.$image->getClientOriginalName();
+                $image->move(public_path('images'), $imageName);
 
-                $name = $image->getClientOriginalName();
-                $image->move(public_path() . '/images/', $name);
                 $pImage = PropertyImage::create([
-                    'image' => $name,
+                    'image' => $imageName,
                     'property_id' => $property->getOriginal('id')
                 ]);
                 $pImage->property()->associate($property);
-                $pImage->save();
+                array_push($images,$pImage);
             }
         }
+        return $images;
     }
 }

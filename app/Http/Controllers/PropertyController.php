@@ -35,24 +35,21 @@ class PropertyController extends Controller
         $property_statuses = $this->crudService->findAll(PropertyStatus::class);
         $estate_types = $this->crudService->findAll(EstateType::class);
         $languages = $this->crudService->findAll(Language::class);
-        $properties = $this->crudService->paginateAll(Property::class,32);
+        $properties = $this->crudService->paginateAll(Property::class,32,auth()->user()->id);
 
         return view("admin.properties.property",with(compact('properties','categories','cities','districts','teams','property_statuses','estate_types','languages')));
     }
 
     public function store(Request $request){
         $request->validate([
-            'name' => 'required',
             'team_id' => 'required',
             'category_id' => 'required',
-            'description' => 'required',
             'room_number' => 'required',
             'bathroom_number' => 'required',
             'property_age' => 'required',
             'property_status' => 'required',
             'floor_number' => 'required',
             'value' => 'required',
-            'slug' => 'required',
             'area' => 'required',
             'district_id' => 'required',
             'estate_type' => 'required',
@@ -60,38 +57,65 @@ class PropertyController extends Controller
             'register_status' => 'required',
             'city_id' => 'required',
             'which_floor' => 'required',
-            'language_id' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+        if($request->input('name-tr')){
+            $data = [
+                'name' => $request->input('name-tr'),
+                'team_id' => $request->team_id,
+                'category_id' => $request->category_id,
+                'description' => $request->input('desc-tr'),
+                'room_number' => $request->room_number,
+                'bathroom_number' => $request->bathroom_number,
+                'property_age' => $request->property_age,
+                'property_status' => $request->property_status,
+                'floor_number' => $request->floor_number,
+                'value' => $request->value,
+                'slug' => $request->input('slug-tr'),
+                'area' => $request->area,
+                'status' => 1,
+                'district_id' => $request->district_id,
+                'estate_type' => $request->estate_type,
+                'ref_no' => $request->ref_no,
+                'register_status' => $request->register_status,
+                'city_id' => $request->city_id,
+                'which_floor' => $request->which_floor,
+                'language_id' => 2,
+            ];
 
-        $data = [
-            'name' => $request->name,
-            'team_id' => $request->team_id,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'room_number' => $request->room_number,
-            'bathroom_number' => $request->bathroom_number,
-            'property_age' => $request->property_age,
-            'property_status' => $request->property_status,
-            'floor_number' => $request->floor_number,
-            'value' => $request->value,
-            'slug' => $request->slug,
-            'area' => $request->area,
-            'status' => 1,
-            'district_id' => $request->district_id,
-            'estate_type' => $request->estate_type,
-            'ref_no' => $request->ref_no,
-            'register_status' => $request->register_status,
-            'city_id' => $request->city_id,
-            'which_floor' => $request->which_floor,
-            'language_id' => $request->language_id,
-        ];
+            $property = $this->propertyService->create($data,$request);
+        }
+        if($request->input(('name-en'))){
+            $data = [
+                'name' => $request->input('name-en'),
+                'team_id' => $request->team_id,
+                'category_id' => $request->category_id,
+                'description' => $request->input('desc-en'),
+                'room_number' => $request->room_number,
+                'bathroom_number' => $request->bathroom_number,
+                'property_age' => $request->property_age,
+                'property_status' => $request->property_status,
+                'floor_number' => $request->floor_number,
+                'value' => $request->value,
+                'slug' => $request->input('slug-en'),
+                'area' => $request->area,
+                'status' => 1,
+                'district_id' => $request->district_id,
+                'estate_type' => $request->estate_type,
+                'ref_no' => $request->ref_no,
+                'register_status' => $request->register_status,
+                'city_id' => $request->city_id,
+                'which_floor' => $request->which_floor,
+                'language_id' => 4,
+            ];
 
-
-
-        $property = $this->propertyService->create($data);
-        $this->imageService->saveImages($request,$property);
-
+            $property = $this->propertyService->create($data,$request);
+        }
         return redirect(route('properties.index'));
+    }
+
+    public function getOne(Request $request){
+        $data['property'] = $this->crudService->findOne(Property::class,$request->property_id);
+        return response()->json($data);
     }
 }

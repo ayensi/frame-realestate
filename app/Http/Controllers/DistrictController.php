@@ -21,6 +21,11 @@ class DistrictController extends Controller
         $this->crudService = $crudService;
     }
 
+    public function getDistricts(Request $request){
+        $data['districts'] = District::where("city_id",$request->city_id)->get(["name", "id"]);
+        return response()->json($data);
+    }
+
     public function index(){
         $cities = $this->crudService->findAll(City::class);
         $districts = $this->crudService->findAll(District::class);
@@ -37,4 +42,5 @@ class DistrictController extends Controller
 
         return redirect(route('districts.index'));
     }
+
 }

@@ -37,7 +37,11 @@ class CrudRepository
         $model::where('id',$id)->update($data);
     }
 
-    public function paginateAll($model,$count){
-        return $model::paginate($count);
+    public function paginateAll($model,$count,$id){
+        return $model::where('team_id',$id)->paginate($count);
+    }
+
+    public function withCityId($model,$city_id){
+        return $model::where('city_id',$city_id)->get();
     }
 }

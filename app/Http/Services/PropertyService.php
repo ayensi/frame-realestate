@@ -13,8 +13,18 @@ class PropertyService implements IPropertyService
         $this->propertyRepository = $propertyRepository;
     }
 
-    public function create($data)
+    public function create($data,$request)
     {
-        return $this->propertyRepository->create($data);
+        return $this->propertyRepository->create($data,$request);
+    }
+
+    public function findAllWithLanguageId($lId)
+    {
+        return $this->propertyRepository->findAllWithLanguageId($lId);
+    }
+
+    public function findAllWithLanguageIdAndCityId($lId, $city_id)
+    {
+        return $this->propertyRepository->findAllWithLanguageIdAndCityId($lId,$city_id);
     }
 }

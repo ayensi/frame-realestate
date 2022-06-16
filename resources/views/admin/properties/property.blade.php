@@ -103,14 +103,59 @@
                         <h4 class="modal-title">Kayıt ekle</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
+
+
+
+                    <ul class="nav nav-tabs tabLi">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tab-1">Türkçe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab-2">İngilizce</a>
+                        </li>
+                    </ul>
+
+
+                    <!-- Tab panes -->
+                    <div class="tab-content tabContainer">
+                        <div id="tab-1" class="container tab-pane active"><br>
+                            <div class="form-group">
+                                <label>TR İsim</label>
+                                <input name="name-tr" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>TR Açıklama</label>
+                                <input name="desc-tr" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>TR Kısaltma</label>
+                                <input name="slug-tr" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <div id="tab-2" class="container tab-pane"><br>
+                            <div class="form-group">
+                                <label>EN İsim</label>
+                                <input name="name-en" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>EN Açıklama</label>
+                                <input name="desc-en" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>EN Kısaltma</label>
+                                <input name="slug-en" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
                             <label>İlan Sahibi</label>
-                            <select name="team_id" id="parentTeam">
+                            <select name="team_id" id="parentTeam" class="form-control">
                                 @foreach($teams as $t)
                                     <option value="{{$t->id}}">{{$t->name}}</option>
                                 @endforeach
@@ -118,15 +163,11 @@
                         </div>
                         <div class="form-group">
                             <label>Ait Olduğu Kategori</label>
-                            <select name="category_id" id="parentCategory">
+                            <select name="category_id" id="parentCategory" class="form-control">
                                 @foreach($categories as $c)
                                     <option value="{{$c->id}}">{{$c->name}}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Açıklama</label>
-                            <input class="form-control" type="text" name="description">
                         </div>
                         <div class="form-group">
                             <label>Oda Sayısı</label>
@@ -142,7 +183,7 @@
                         </div>
                         <div class="form-group">
                             <label>Mülk Durumu</label>
-                            <select name="property_status" id="parentPropertyStatus">
+                            <select name="property_status" id="parentPropertyStatus" class="form-control">
                                 @foreach($property_statuses as $ps)
                                     <option value="{{$ps->id}}">{{$ps->property_status}}</option>
                                 @endforeach
@@ -157,24 +198,26 @@
                             <input class="form-control" type="text" name="value">
                         </div>
                         <div class="form-group">
-                            <label>Kısaltma</label>
-                            <input class="form-control" type="text" name="slug">
-                        </div>
-                        <div class="form-group">
                             <label>Alan (m^2)</label>
                             <input class="form-control" type="text" name="area">
                         </div>
                         <div class="form-group">
-                            <label>İlçe</label>
-                            <select name="district_id" id="parentPropertyStatus">
-                                @foreach($districts as $d)
-                                    <option value="{{$d->id}}">{{$d->name}}</option>
+                            <label>Şehir</label>
+                            <select name="city_id" id="city-dd" class="form-control">
+                                <option selected value="0" disabled>Seçiniz: </option>
+                                @foreach($cities as $c)
+                                    <option value="{{$c->id}}">{{$c->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>İlçe</label>
+                            <select id="district-dd" name="district_id" class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Mülk Tipi</label>
-                            <select name="estate_type" id="parentPropertyStatus">
+                            <select name="estate_type" id="parentPropertyStatus" class="form-control">
                                 @foreach($estate_types as $et)
                                     <option value="{{$et->id}}">{{$et->estate_type}}</option>
                                 @endforeach
@@ -189,24 +232,8 @@
                             <input class="form-control" type="text" name="register_status">
                         </div>
                         <div class="form-group">
-                            <label>Şehir</label>
-                            <select name="city_id" id="parentPropertyStatus">
-                                @foreach($cities as $c)
-                                    <option value="{{$c->id}}">{{$c->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label>Bulunduğu Kat</label>
                             <input class="form-control" type="text" name="which_floor">
-                        </div>
-                        <div class="form-group">
-                            <label>İlanın Dili</label>
-                            <select name="language_id" id="parentPropertyStatus">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
-                                @endforeach
-                            </select>
                         </div>
                         <div class="form-group">
                             <label>Resimler</label>
@@ -220,11 +247,13 @@
                 </form>
             </div>
         </div>
+
     </div>
+
     <!-- Duzenle Modal HTML -->
     <!-- Duzenle Modal HTML -->
     <div id="DuzenleModal" class="modal fade">
-        <div class="modal-dialog">
+        <div class="modal-dialog" style="width: 100%;max-width: 1200px;">
             <div class="modal-content">
                 <form method="post" action="{{route('properties.update')}}">
                     @csrf
@@ -233,37 +262,139 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control">
+                        <ul class="nav nav-tabs tabLi">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tab-3">Türkçe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tab-4">İngilizce</a>
+                            </li>
+                        </ul>
+
+
+                        <!-- Tab panes -->
+                        <div class="tab-content tabContainer">
+                            <div id="tab-3" class="container tab-pane active"><br>
+                                <div class="form-group">
+                                    <label>TR İsim</label>
+                                    <input name="name-tr" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>TR Açıklama</label>
+                                    <input name="desc-tr" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>TR Kısaltma</label>
+                                    <input name="slug-tr" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div id="tab-4" class="container tab-pane"><br>
+                                <div class="form-group">
+                                    <label>EN İsim</label>
+                                    <input name="name-en" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>EN Açıklama</label>
+                                    <input name="desc-en" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>EN Kısaltma</label>
+                                    <input name="slug-en" type="text" class="form-control" required>
+                                </div>
+                            </div>
                         </div>
+
+
                         <div class="form-group">
-                            <label>Ait Olduğu Dil</label>
-                            <select name="languageId" id="parentLanguage">
-                                @foreach($languages as $l)
-                                    <option value="{{$l->id}}">{{$l->name}}</option>
+                            <label>İlan Sahibi</label>
+                            <select name="team_id" id="updateTeam" class="form-control">
+                                @foreach($teams as $t)
+                                    <option value="{{$t->id}}">{{$t->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Ait Olduğu Menü</label>
-                            <select name="menuId" id="parentMenu">
-                                @foreach($menus as $m)
-                                    <option value="{{$m->id}}">{{$m->name}}</option>
+                            <label>Ait Olduğu Kategori</label>
+                            <select name="category_id" id="updateCat" class="form-control">
+                                @foreach($categories as $c)
+                                    <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Oda Sayısı</label>
+                            <input id="updateRoom" class="form-control" type="text" name="room_number">
+                        </div>
+                        <div class="form-group">
+                            <label>Banyo Sayısı</label>
+                            <input id="updateBath" class="form-control" type="text" name="bathroom_number">
+                        </div>
+                        <div class="form-group">
+                            <label>Bina Yaşı</label>
+                            <input id="updateAge" class="form-control" type="text" name="property_age">
+                        </div>
+                        <div class="form-group">
+                            <label>Mülk Durumu</label>
+                            <select name="property_status" id="updateProp" class="form-control">
+                                @foreach($property_statuses as $ps)
+                                    <option value="{{$ps->id}}">{{$ps->property_status}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>İçerik</label>
-                            <textarea class="ckeditor form-control" name="editortext"></textarea>
+                            <label>Kat Sayısı</label>
+                            <input id="updateFloorNumber" class="form-control" type="text" name="floor_number">
                         </div>
                         <div class="form-group">
-                            <label>Başlık</label>
-                            <input class="form-control" type="text" name="headline">
+                            <label>Fiyat</label>
+                            <input id="updateValue" class="form-control" type="text" name="value">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Alan (m^2)</label>
+                            <input id="updateArea" class="form-control" type="text" name="area">
                         </div>
                         <div class="form-group">
-                            <label>Altmetin</label>
-                            <input class="form-control" type="text" name="subtext">
+                            <label>Şehir</label>
+                            <select name="city_id" id="updateCity" class="form-control">
+                                @foreach($cities as $c)
+                                    <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>İlçe</label>
+                            <select name="district_id" id="updateDistrict" class="form-control">
+                                @foreach($districts as $d)
+                                    <option value="{{$d->id}}">{{$d->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mülk Tipi</label>
+                            <select name="estate_type" id="updateEstate" class="form-control">
+                                @foreach($estate_types as $et)
+                                    <option value="{{$et->id}}">{{$et->estate_type}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Referans No</label>
+                            <input id="updateRef" class="form-control" type="text" name="ref_no">
+                        </div>
+                        <div class="form-group">
+                            <label>Tapu Durumu</label>
+                            <input id="updateRegister" class="form-control" type="text" name="register_status">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bulunduğu Kat</label>
+                            <input id="updateFloorOn" class="form-control" type="text" name="which_floor">
+                        </div>
+                        <div class="form-group">
+                            <label>İlan Durumu</label>
+                            <input id="updateStatus" class="form-control" type="text" name="status">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -332,6 +463,27 @@
     </script>
     <script>
         $(document).ready(function(){
+            $('#city-dd').on('change', function () {
+                var idCity = this.value;
+                $("#district-dd").html('');
+                $.ajax({
+                    url: "{{route('districts.getDistricts')}}",
+                    type: "POST",
+                    data: {
+                        city_id: idCity,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#district-dd').html('<option selected disabled value="">Seçiniz: </option>');
+                        $.each(result.districts, function (key, value) {
+                            $("#district-dd").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+
             // Activate tooltip
             $('[data-toggle="tooltip"]').tooltip();
 
@@ -360,6 +512,39 @@
         });
         $('.Duzenle').on('click', function(evt) {
             $('#idToUpdate').val($(this).attr('id'));
+            var property_id = $(this).attr('id');
+            $.ajax({
+                url: "{{route('properties.getOne')}}",
+                type: "GET",
+                data: {
+                    property_id: property_id,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#updateName').val(result.property.name);
+                    $('#updateDesc').val(result.property.description);
+                    $('#updateRoom').val(result.property.room_number);
+                    $('#updateBath').val(result.property.bathroom_number);
+                    $('#updateAge').val(result.property.property_age);
+                    $('#updateFloorNumber').val(result.property.floor_number);
+                    $('#updateValue').val(result.property.value);
+                    $('#updateSlug').val(result.property.slug);
+                    $('#updateArea').val(result.property.area);
+                    $('#updateFloorOn').val(result.property.which_floor);
+                    $('#updateRef').val(result.property.ref_no);
+                    $('#updateRegister').val(result.property.register_status);
+                    $("#updateTeam").val(result.property.team_id).change();
+                    $("#updateCat").val(result.property.category_id).change();
+                    $("#updateLang").val(result.property.language_id).change();
+                    $("#updateCity").val(result.property.city_id).change();
+                    $("#updateDistrict").val(result.property.district_id).change();
+                    $("#updateEstate").val(result.property.estate_type).change();
+                    $("#updateProp").val(result.property.property_status).change();
+                    $("#updateStatus").val(result.property.status).change();
+
+                }
+            });
         });
         var ids=[];
         $('#CokluSilModal').on('click',function (evt){

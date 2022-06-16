@@ -45,4 +45,25 @@ class TeamController extends Controller
         $this->crudService->create(Team::class,$data);
         return redirect(route('teams.index'));
     }
+
+    public function destroy(Request $request){
+        $this->crudService->delete(Team::class,$request->id);
+        return redirect(route('teams.index'));
+
+    }
+
+    public function destroyMany(Request $request){
+        $ids = $request->ids;
+        if(count($request->ids)>1){
+            $this->crudService->deleteMany(Team::class,$request->ids);
+        }
+        return redirect(route('teams.index'));
+    }
+
+    public function update(Request $request){
+        $data = array_filter($request->except(['_token']));
+        $this->crudService->update(Team::class,$request->id,$data);
+        return redirect(route('teams.index'));
+
+    }
 }

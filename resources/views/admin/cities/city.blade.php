@@ -40,7 +40,6 @@
                             </td>
                             <td>{{$c->name}}</td>
                             <td>
-                                <a href="#DuzenleModal" id="{{$c->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
                                 <a href="#SilModal" class="Sil" id="{{$c->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
                             </td>
                         </tr>
@@ -76,32 +75,7 @@
             </div>
         </div>
     </div>
-    <!-- Duzenle Modal HTML -->
-    <!-- Duzenle Modal HTML -->
-    <div id="DuzenleModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form method="post" action="{{route('cities.update')}}">
-                    @csrf
-                    <div class="modal-header">
-                        <h4 class="modal-title">Kayıt düzenle</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="id" id="idToUpdate">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Kaydet">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
     <!-- Sil Modal HTML -->
     <div id="SilModal" class="modal fade">
         <div class="modal-dialog">

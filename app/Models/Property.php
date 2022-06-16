@@ -9,16 +9,36 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-    protected $primaryKey = "id";
-    public $incrementing = true;
+    protected $guarded = [''];
+    protected $fillable = [
+        'name',
+        'team_id',
+        'category_id',
+        'description',
+        'room_number',
+        'bathroom_number',
+        'property_age',
+        'property_status',
+        'floor_number',
+        'value',
+        'slug',
+        'area',
+        'status',
+        'district_id',
+        'estate_type',
+        'ref_no',
+        'register_status',
+        'city_id',
+        'which_floor',
+        'language_id'
+    ];
 
 
     public function images(){
-        return $this->hasMany(Image::class);
+        return $this->hasMany(PropertyImage::class,'property_id',);
     }
     public function propertyStatus(){
-        return $this->belongsTo(PropertyStatus::class,'id');
+        return $this->belongsTo(PropertyStatus::class,'property_status');
     }
     public function city(){
         return $this->belongsTo(City::class);
@@ -27,7 +47,7 @@ class Property extends Model
         return $this->belongsTo(District::class);
     }
     public function estateType(){
-        return $this->belongsTo(EstateType::class,'id');
+        return $this->belongsTo(EstateType::class,'estate_type');
     }
     public function team(){
         return $this->belongsTo(Team::class);
