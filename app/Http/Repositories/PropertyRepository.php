@@ -22,9 +22,8 @@ class PropertyRepository
         $this->propertyImageRepository = $propertyImageRepository;
     }
 
-    public function create($data,$request){
+    public function create($data){
         //$property = Property::create($data);
-
         $property = Property::create($data);
 
         $language = $this->crudRepository->findOne(Language::class,$data['language_id']);
@@ -43,9 +42,7 @@ class PropertyRepository
         $property->estateType()->associate($estate_type);
         $property->district()->associate($district);
         $property->city()->associate($city);
-
-        $images = $this->propertyImageRepository->saveImages($request,$property);
-        $property->images()->saveMany($images);
+        return $property;
     }
 
     public function findAllWithLanguageId($lId){
@@ -55,4 +52,5 @@ class PropertyRepository
     public function findAllWithLanguageIdAndCityId($lId,$city_id){
         return Property::where('language_id',$lId)->where('city_id',$city_id)->get();
     }
+
 }

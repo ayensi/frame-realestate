@@ -86,6 +86,7 @@ public function home(){
             if(count($properties)==0){
                 $properties = $this->crudService->findAll(Property::class);
             }
+            //$properties = $this->propertyService->getWithLanguageIdOrAll($lId);
             return view('properties',with(compact('properties')));
         }
         if($url == "frame-bodrum"){

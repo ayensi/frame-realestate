@@ -15,19 +15,19 @@ class PropertyImageRepository
         $this->crudService = $crudService;
     }
 
-    public function saveImages($request,$property){
+    public function saveImages($request,$propertyTr,$propertyEn){
         $images = [];
         if($request->hasfile('images'))
         {
             foreach($request->file('images') as $image) {
                 $imageName = time().'.'.$image->getClientOriginalName();
                 $image->move(public_path('images'), $imageName);
-
                 $pImage = PropertyImage::create([
                     'image' => $imageName,
-                    'property_id' => $property->getOriginal('id')
+                    'ad_number' => $propertyTr->ad_number
                 ]);
-                $pImage->property()->associate($property);
+                $pImage->property()->associate($propertyTr);
+                $pImage->property()->associate($propertyEn);
                 array_push($images,$pImage);
             }
         }

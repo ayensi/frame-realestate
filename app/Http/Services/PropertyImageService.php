@@ -13,8 +13,8 @@ class PropertyImageService implements IPropertyImageService
         $this->imageRepository = $imageRepository;
     }
 
-    public function saveImages($request,$property)
+    public function saveImages($request,$propertyTr,$propertyEn)
     {
-        $this->imageRepository->saveImages($request,$property);
+        return $this->imageRepository->saveImages($request,$propertyTr,$propertyEn);
     }
 }

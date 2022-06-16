@@ -14,6 +14,7 @@ use App\Models\Property;
 use App\Models\PropertyStatus;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Nette\Utils\Random;
 
 class PropertyController extends Controller
 {
@@ -41,6 +42,7 @@ class PropertyController extends Controller
     }
 
     public function store(Request $request){
+        $random = random_int(1,1000000);
         $request->validate([
             'team_id' => 'required',
             'category_id' => 'required',
@@ -53,7 +55,7 @@ class PropertyController extends Controller
             'area' => 'required',
             'district_id' => 'required',
             'estate_type' => 'required',
-            'ref_no' => 'required',
+            'ref_no' => 'required|unique:properties',
             'register_status' => 'required',
             'city_id' => 'required',
             'which_floor' => 'required',
@@ -61,6 +63,7 @@ class PropertyController extends Controller
         ]);
         if($request->input('name-tr')){
             $data = [
+                'ad_number' => $random,
                 'name' => $request->input('name-tr'),
                 'team_id' => $request->team_id,
                 'category_id' => $request->category_id,
@@ -81,12 +84,14 @@ class PropertyController extends Controller
                 'city_id' => $request->city_id,
                 'which_floor' => $request->which_floor,
                 'language_id' => 2,
+
             ];
 
-            $property = $this->propertyService->create($data,$request);
+            $propertyTr = $this->propertyService->create($data);
         }
         if($request->input(('name-en'))){
             $data = [
+                'ad_number' => $random,
                 'name' => $request->input('name-en'),
                 'team_id' => $request->team_id,
                 'category_id' => $request->category_id,
@@ -109,8 +114,11 @@ class PropertyController extends Controller
                 'language_id' => 4,
             ];
 
-            $property = $this->propertyService->create($data,$request);
+            $propertyEn = $this->propertyService->create($data);
         }
+        $images = $this->imageService->saveImages($request,$propertyTr,$propertyEn);
+        $propertyTr->images()->saveMany($images);
+        $propertyEn->images()->saveMany($images);
         return redirect(route('properties.index'));
     }
 

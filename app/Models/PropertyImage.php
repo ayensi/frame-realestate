@@ -12,10 +12,10 @@ class PropertyImage extends Model
     protected $guarded = [''];
     protected $fillable = [
         'image',
-        'property_id'
+        'ad_number'
     ];
 
     public function property(){
-        return $this->belongsTo(Property::class,'property_id');
+        return $this->belongsTo(Property::class,'ad_number','ad_number');
     }
 }

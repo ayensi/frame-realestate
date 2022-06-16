@@ -30,12 +30,13 @@ class Property extends Model
         'register_status',
         'city_id',
         'which_floor',
-        'language_id'
+        'language_id',
+        'ad_number'
     ];
 
 
     public function images(){
-        return $this->hasMany(PropertyImage::class,'property_id',);
+        return $this->hasMany(PropertyImage::class,'ad_number','ad_number');
     }
     public function propertyStatus(){
         return $this->belongsTo(PropertyStatus::class,'property_status');
