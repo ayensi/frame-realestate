@@ -43,5 +43,8 @@
  	"repairing" : "Repairing",
  	"reference" : "Reference",
  	"location" : "Location",
- 	"property-type" : "Property Type"
+ 	"property-type" : "Property Type",
+ 	"for_sale" : "For Sale",
+ 	"for_rent" : "For Rent",
+ 	"home_propertiess" : "properties"
 } 

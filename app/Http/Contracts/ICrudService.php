@@ -14,5 +14,7 @@ interface ICrudService
     public function findWithMenuId($model,$id,$lId);
     public function paginateAll($model,$count,$id);
     public function withCityId($model,$city_id);
+    public function withId($model,$id);
+    public function withLanguageId($model,$id,$lId);
 
 }

@@ -1,7 +1,18 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Model
+    |--------------------------------------------------------------------------
+    |
+    | When using the "Eloquent" authentication driver, we need to know which
+    | Eloquent model should be used to retrieve your users. Of course, it
+    | is often just the "User" model but you may use whatever you like.
+    |
+    */
 
+    'model' => 'Team',
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -15,7 +26,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'teams',
     ],
 
     /*
@@ -38,7 +49,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'teams',
         ],
     ],
 
@@ -63,6 +74,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'teams' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Team::class,
         ],
 
         // 'users' => [
@@ -89,6 +104,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'teams' => [
+            'provider' => 'teams',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

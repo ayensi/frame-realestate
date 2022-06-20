@@ -42,5 +42,9 @@
  	"test4" : "test4",
  	"repairing" : "Tamirat",
  	"reference" : "Referans",
- 	"location" : "Lokasyon"
+ 	"location" : "Lokasyon",
+ 	"for_sale" : "Satılık",
+ 	"for_rent" : "Kiralık",
+ 	"home_properties" : "properties",
+ 	"home_propertiess" : "portfoylerimiz"
 } 

@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="container">
+<div style="padding: 15px">
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">

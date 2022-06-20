@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <title>Frame Gayrimenkul Danışmanlık</title>
     <meta name="robots" content="max-image-preview:large">
@@ -15,6 +15,9 @@
 
     <script src="{{asset('src/wp-emoji-release.min.js')}}" type="text/javascript" defer=""></script>
     <style>
+        .bodrumbutton{
+            margin-top: 10px!important;
+        }
         img.wp-smiley,
         img.emoji {
             display: inline !important;
@@ -66,6 +69,21 @@
     <link rel="stylesheet" id="hompark-main-style-css" href="{{asset("./src/style.css")}}" media="all">
     <link rel="stylesheet" id="hompark-stylesheet-css" href="{{"./src/style(1).css"}}" media="all">
     <style id="hompark-stylesheet-inline-css">
+         @media  screen and (max-width: 782px) {
+
+            h4 {
+    font-size: 1.1rem!important;
+}
+        .cookie-container {
+   
+    z-index: 2313321321321!important;
+    left: 9px!important;
+    right: unset!important
+}
+}
+        html,body{
+            overflow-x: hidden;
+        }
         body .navbar>.logo img {
             height: 300px;
         }
@@ -1035,7 +1053,6 @@
             -o-transition: .25s ease-in-out;
             transition: .25s ease-in-out;
             border: solid 1px #dc1e33;
-            margin-top: -5px;
         }
     </style>
     <style>

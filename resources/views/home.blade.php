@@ -1,7 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
+<style type="text/css">
+     @media  screen and (max-width: 782px) {
+    #instafeed {
+        grid-template-columns: repeat(2, 1fr)!important;
+        }
+        .testi-style-limabelas .testi-item {
+            width: 345px!important
+}
+.consultation-box a{
+    white-space: nowrap;
+}
+.columniki {
+    height: 100%!important;
+}
+div#columnsag {
+height: 475px!important
+}
 
+}
+</style>
     <div class="vc_row wpb_row vc_row-fluid header-spacing">
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner">
@@ -272,9 +291,9 @@
 
                             </div>
                             <div style="margin-top: 10px; display: flex; line-height: 0px;">
-                                <a href=""><i class="fa fa-search"></i> {{__('residential')}}</a>
+                                <a href="{{route('page',['url' => __('home_propertiess')])}}"><i class="fa fa-search"></i> {{__('residential')}}</a>
                                 <a style="margin-left: 20px; background-color: transparent; border:2px solid #FFFFFF; color:#FFFFFF"
-                                   href=""><i style="margin-right: 5px;" class="fa fa-search"></i>{{__('estate-management')}}</a>
+                                   href="{{route('page',['url' => __('home_propertiess')])}}"><i style="margin-right: 5px;" class="fa fa-search"></i>{{__('estate-management')}}</a>
                             </div>
                         </div>
                     </div>
@@ -355,7 +374,7 @@
                                                 <div class="vc_carousel-slideline-inner" style="margin-left: -7px;">
                                                     @for($i = 0;$i<4;$i++)
                                                         <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                            <div class="vc_inner"><img width="2340" height="1562"
+                                                            <div class="vc_inner"><img width="145" height="145"
                                                                                        src="{{asset('/images/'.$homepageimages[$i]->image)}}" class="attachment-full" alt=""
                                                                                        loading="lazy">
                                                                 <p
@@ -510,7 +529,7 @@
 
                                                     @for($i = 4;$i<8;$i++)
                                                         <div class="vc_item" style="width: 7.33333%; height: 122.812px;">
-                                                            <div class="vc_inner"><img width="2340" height="1562"
+                                                            <div class="vc_inner"><img width="145" height="145"
                                                                                        src="{{asset('/images/'.$homepageimages[$i]->image)}}" class="attachment-full" alt=""
                                                                                        loading="lazy">
                                                                 <p
@@ -1469,7 +1488,7 @@
         </div>
     </section>
 
-    <div class="cookie-container">
+    <!--<div class="cookie-container">
         <svg class="cookie" width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="cookies-svgrepo-com 1" clip-path="url(#clip0_1_3)">
                 <g>
@@ -1609,7 +1628,7 @@
             <button class="cookiebutton">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Onayla' : 'Accept All'}}</button>
             <a class="closeCookie" href="#">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Seçenekleri Yönet' : 'Manage Options'}}</a>
         </div>
-    </div>
+    </div>--->
 
 
 @endsection

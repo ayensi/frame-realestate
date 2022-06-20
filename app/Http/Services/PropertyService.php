@@ -28,4 +28,8 @@ class PropertyService implements IPropertyService
         return $this->propertyRepository->findAllWithLanguageIdAndCityId($lId,$city_id);
     }
 
+    public function update($dataTr,$dataEn)
+    {
+        return $this->propertyRepository->update($dataTr,$dataEn);
+    }
 }

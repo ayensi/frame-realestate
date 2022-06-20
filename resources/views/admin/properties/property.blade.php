@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <div class="container">
+    <div style="padding: 15px">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -36,16 +36,13 @@
                     <th>Kat Sayısı</th>
                     <th>Fiyat</th>
                     <th>İlan Durumu</th>
-                    <th>Kısaltma</th>
                     <th>Alan (m^2)</th>
+                    <th>Şehir</th>
                     <th>İlçe</th>
                     <th>Mülk Tipi</th>
                     <th>Referans No</th>
                     <th>Tapu Durumu</th>
-                    <th>Şehir</th>
                     <th>Bulunduğu Kat</th>
-                    <th>İlan Dili</th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -69,17 +66,15 @@
                             <td>{{$p->floor_number}}</td>
                             <td>{{$p->value}}</td>
                             <td>{{$p->status}}</td>
-                            <td>{{$p->slug}}</td>
                             <td>{{$p->area}}</td>
+                            <td>{{$p->city->name}}</td>
                             <td>{{$p->district->name}}</td>
                             <td>{{$p->estateType->estate_type}}</td>
                             <td>{{$p->ref_no}}</td>
                             <td>{{$p->register_status}}</td>
-                            <td>{{$p->city->name}}</td>
                             <td>{{$p->which_floor}}</td>
-                            <td>{{$p->language->name}}</td>
                             <td>
-                                <a href="#DuzenleModal" id="{{$p->id}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a href="#DuzenleModal" id="{{$p->ad_number}}" class="Duzenle" data-toggle="modal"><i data-toggle="tooltip" title="Duzenle" class="fa fa-edit" aria-hidden="true"></i></a>
                                 <a href="#SilModal" class="Sil" id="{{$p->id}}" data-toggle="modal"><i class="fa fa-trash" data-toggle="tooltip" title="Sil" aria-hidden="true"></i></a>
                             </td>
                         </tr>
@@ -121,29 +116,29 @@
                         <div id="tab-1" class="container tab-pane active"><br>
                             <div class="form-group">
                                 <label>TR İsim</label>
-                                <input name="name-tr" type="text" class="form-control" required>
+                                <input name="name-tr" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TR Açıklama</label>
-                                <input name="desc-tr" type="text" class="form-control" required>
+                                <input name="desc-tr" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TR Kısaltma</label>
-                                <input name="slug-tr" type="text" class="form-control" required>
+                                <input name="slug-tr" type="text" class="form-control">
                             </div>
                         </div>
                         <div id="tab-2" class="container tab-pane"><br>
                             <div class="form-group">
                                 <label>EN İsim</label>
-                                <input name="name-en" type="text" class="form-control" required>
+                                <input name="name-en" type="text" class="form-control" >
                             </div>
                             <div class="form-group">
                                 <label>EN Açıklama</label>
-                                <input name="desc-en" type="text" class="form-control" required>
+                                <input name="desc-en" type="text" class="form-control" >
                             </div>
                             <div class="form-group">
                                 <label>EN Kısaltma</label>
-                                <input name="slug-en" type="text" class="form-control" required>
+                                <input name="slug-en" type="text" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -251,7 +246,6 @@
     </div>
 
     <!-- Duzenle Modal HTML -->
-    <!-- Duzenle Modal HTML -->
     <div id="DuzenleModal" class="modal fade">
         <div class="modal-dialog" style="width: 100%;max-width: 1200px;">
             <div class="modal-content">
@@ -277,29 +271,29 @@
                             <div id="tab-3" class="container tab-pane active"><br>
                                 <div class="form-group">
                                     <label>TR İsim</label>
-                                    <input name="name-tr" type="text" class="form-control" required>
+                                    <input name="name-tr" id="updateNameTr" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>TR Açıklama</label>
-                                    <input name="desc-tr" type="text" class="form-control" required>
+                                    <input name="desc-tr" id="updateDescTr" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>TR Kısaltma</label>
-                                    <input name="slug-tr" type="text" class="form-control" required>
+                                    <input name="slug-tr" id="updateSlugTr" type="text" class="form-control">
                                 </div>
                             </div>
                             <div id="tab-4" class="container tab-pane"><br>
                                 <div class="form-group">
                                     <label>EN İsim</label>
-                                    <input name="name-en" type="text" class="form-control" required>
+                                    <input name="name-en" id="updateNameEn" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>EN Açıklama</label>
-                                    <input name="desc-en" type="text" class="form-control" required>
+                                    <input name="desc-en" id="updateDescEn" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>EN Kısaltma</label>
-                                    <input name="slug-en" type="text" class="form-control" required>
+                                    <input name="slug-en" id="updateSlugEn" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -399,6 +393,7 @@
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id" id="idToUpdate">
+                        <input type="hidden" name="ad_number" id="ad_number_to_update">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="submit" class="btn btn-success" value="Kaydet">
                     </div>
@@ -512,40 +507,72 @@
         });
         $('.Duzenle').on('click', function(evt) {
             $('#idToUpdate').val($(this).attr('id'));
-            var property_id = $(this).attr('id');
+            $('#ad_number_to_update').val($(this).attr('id'));
+            var number = $(this).attr('id');
             $.ajax({
                 url: "{{route('properties.getOne')}}",
                 type: "GET",
                 data: {
-                    property_id: property_id,
+                    number: number,
                     _token: '{{csrf_token()}}'
                 },
                 dataType: 'json',
                 success: function (result) {
-                    $('#updateName').val(result.property.name);
-                    $('#updateDesc').val(result.property.description);
-                    $('#updateRoom').val(result.property.room_number);
-                    $('#updateBath').val(result.property.bathroom_number);
-                    $('#updateAge').val(result.property.property_age);
-                    $('#updateFloorNumber').val(result.property.floor_number);
-                    $('#updateValue').val(result.property.value);
-                    $('#updateSlug').val(result.property.slug);
-                    $('#updateArea').val(result.property.area);
-                    $('#updateFloorOn').val(result.property.which_floor);
-                    $('#updateRef').val(result.property.ref_no);
-                    $('#updateRegister').val(result.property.register_status);
-                    $("#updateTeam").val(result.property.team_id).change();
-                    $("#updateCat").val(result.property.category_id).change();
-                    $("#updateLang").val(result.property.language_id).change();
-                    $("#updateCity").val(result.property.city_id).change();
-                    $("#updateDistrict").val(result.property.district_id).change();
-                    $("#updateEstate").val(result.property.estate_type).change();
-                    $("#updateProp").val(result.property.property_status).change();
-                    $("#updateStatus").val(result.property.status).change();
-
+                    if(result.propertyTr[0]){
+                        $('#DuzenleModal').find("input[type=text]").val("");
+                        $('#updateRoom').val(result.propertyTr[0].room_number);
+                        $('#updateBath').val(result.propertyTr[0].bathroom_number);
+                        $('#updateAge').val(result.propertyTr[0].property_age);
+                        $('#updateFloorNumber').val(result.propertyTr[0].floor_number);
+                        $('#updateValue').val(result.propertyTr[0].value);
+                        $('#updateArea').val(result.propertyTr[0].area);
+                        $('#updateFloorOn').val(result.propertyTr[0].which_floor);
+                        $('#updateRef').val(result.propertyTr[0].ref_no);
+                        $('#updateRegister').val(result.propertyTr[0].register_status);
+                        $("#updateTeam").val(result.propertyTr[0].team_id).change();
+                        $("#updateCat").val(result.propertyTr[0].category_id).change();
+                        $("#updateLang").val(result.propertyTr[0].language_id).change();
+                        $("#updateCity").val(result.propertyTr[0].city_id).change();
+                        $("#updateDistrict").val(result.propertyTr[0].district_id).change();
+                        $("#updateEstate").val(result.propertyTr[0].estate_type).change();
+                        $("#updateProp").val(result.propertyTr[0].property_status).change();
+                        $("#updateStatus").val(result.propertyTr[0].status).change();
+                        $("#ad_number_to_update").val(result.propertyTr[0].ad_number).change();
+                        $("#updateNameTr").val(result.propertyTr[0].name).change();
+                        $("#updateDescTr").val(result.propertyTr[0].description).change();
+                        $("#updateSlugTr").val(result.propertyTr[0].slug).change();
+                        $("#updateNameEn").val(result.propertyEn[0].name).change();
+                        $("#updateDescEn").val(result.propertyEn[0].description).change();
+                        $("#updateSlugEn").val(result.propertyEn[0].slug).change();
+                    }
+                    else{
+                        $('#DuzenleModal').find("input[type=text]").val("");
+                        $('#updateRoom').val(result.propertyEn[0].room_number);
+                        $('#updateBath').val(result.propertyEn[0].bathroom_number);
+                        $('#updateAge').val(result.propertyEn[0].property_age);
+                        $('#updateFloorNumber').val(result.propertyEn[0].floor_number);
+                        $('#updateValue').val(result.propertyEn[0].value);
+                        $('#updateArea').val(result.propertyEn[0].area);
+                        $('#updateFloorOn').val(result.propertyEn[0].which_floor);
+                        $('#updateRef').val(result.propertyEn[0].ref_no);
+                        $('#updateRegister').val(result.propertyEn[0].register_status);
+                        $("#updateTeam").val(result.propertyEn[0].team_id).change();
+                        $("#updateCat").val(result.propertyEn[0].category_id).change();
+                        $("#updateLang").val(result.propertyEn[0].language_id).change();
+                        $("#updateCity").val(result.propertyEn[0].city_id).change();
+                        $("#updateDistrict").val(result.propertyEn[0].district_id).change();
+                        $("#updateEstate").val(result.propertyEn[0].estate_type).change();
+                        $("#updateProp").val(result.propertyEn[0].property_status).change();
+                        $("#updateStatus").val(result.propertyEn[0].status).change();
+                        $("#ad_number_to_update").val(result.propertyEn[0].ad_number).change();
+                        $("#updateNameEn").val(result.propertyEn[0].name).change();
+                        $("#updateDescEn").val(result.propertyEn[0].description).change();
+                        $("#updateSlugEn").val(result.propertyEn[0].slug).change();
+                    }
                 }
             });
         });
+
         var ids=[];
         $('#CokluSilModal').on('click',function (evt){
             $("input:checkbox[type=checkbox]:checked").each(function(){

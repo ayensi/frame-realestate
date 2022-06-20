@@ -43,7 +43,7 @@ class HomeController extends Controller
     public function setLocale($language){
         LaravelLocalization::setLocale($language);
         Session::put('locale',$language);
-        return redirect()->back();
+        return redirect(route('home'));
     }
 public function home(){
         $homepageimages = $this->crudService->findAll(HomepageImage::class);
@@ -83,9 +83,6 @@ public function home(){
             $language = App::getLocale();
             $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
             $properties = $this->propertyService->findAllWithLanguageId($lId);
-            if(count($properties)==0){
-                $properties = $this->crudService->findAll(Property::class);
-            }
             //$properties = $this->propertyService->getWithLanguageIdOrAll($lId);
             return view('properties',with(compact('properties')));
         }
@@ -93,18 +90,12 @@ public function home(){
             $language = App::getLocale();
             $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
             $properties = $this->propertyService->findAllWithLanguageIdAndCityId($lId,2);
-            if(count($properties)==0){
-                $properties = $this->crudService->withCityId(Property::class,2);
-            }
             return view('properties',with(compact('properties')));
         }
         if($url == "frame-istanbul"){
             $language = App::getLocale();
             $lId = $this->languageService->findWithLanguageCode($language)->toArray()['id'];
             $properties = $this->propertyService->findAllWithLanguageIdAndCityId($lId,1);
-            if(count($properties)==0){
-                $properties = $this->crudService->withCityId(Property::class,1);
-            }
             return view('properties',with(compact('properties')));
         }
         return view($page->menu->slug,with(compact('content','menu')));
@@ -116,6 +107,13 @@ public function home(){
         $homepages->whyframe_text = "sa";
         return view('home',compact('sliders','homepages'));
     }
+
+
+    public function detay(){
+        return view('detay');
+    }
+
+
     public function welcome(Request $request){
         return view('welcome');
     }

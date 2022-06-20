@@ -17,8 +17,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::get('/admin/login', [\App\Http\Controllers\AdminController::class,'login'])->name('login');
 Route::post('/admin/login', [\App\Http\Controllers\AdminController::class,'loginPost'])->name('loginPost');
-Route::post('/admin/register', [\App\Http\Controllers\AdminController::class,'registerPost'])->name('registerPost');
-Route::get('/admin/register', [\App\Http\Controllers\AdminController::class,'register'])->name('register');
+
+/*Route::post('/admin/register', [\App\Http\Controllers\AdminController::class,'registerPost'])->name('registerPost');
+Route::get('/admin/register', [\App\Http\Controllers\AdminController::class,'register'])->name('register');*/
 
 Route::prefix('/admin')->middleware('auth')->group(function () {
 
@@ -172,6 +173,8 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('ho
 
 Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect'])->group(function () {
     Route::get('/{url}', [\App\Http\Controllers\HomeController::class, 'page'])->name('page');
+
+    Route::get('/detay',[\App\Http\Controllers\HomeController::class, 'detay'])->name('detay');
 
 });
     Route::get('/setLocale/{language}',[\App\Http\Controllers\HomeController::class,'setLocale'])->name('setLocale');

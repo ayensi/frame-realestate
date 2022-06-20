@@ -70,7 +70,7 @@
                                 <option value="Ofis">{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Ofis' : 'Office'}}</option>
                             </select>
                             <input class="price" placeholder="Min ₺" type="text">
-                            <div> <span> - </span></div>
+                            <div class="hidden-xs"> <span > - </span></div>
                             <input class="price" placeholder="Max ₺" type="text">
                             <input type="submit" value="{{\Illuminate\Support\Facades\App::getLocale() == 'tr' ? 'Ara' : 'Search'}}"></input>
                         </form>
@@ -82,7 +82,7 @@
             <div class="row">
                 @foreach($properties as $p)
                     <div class="col-lg-4 col-md-4">
-                        <a href="sale/{{$p->slug}}">
+                        <a href="/detay.html"><!--sale/{{$p->slug}}-->
                             <figure style="position:relative; height: 65%;">
                                 <div style="padding-top:100%; position:relative">
                                     <img style="position:absolute; top:0; left:0; width:100%;height:65%;"
@@ -91,7 +91,7 @@
                                 </div>
                                 <figcaption style="position:absolute; bottom: -35px; width: 100%;">
                                     <div>
-                                        <p style="text-align: left">Satılık</p>
+                                        <p style="text-align: left">{{__('for_sale')}}</p>
                                         <p style="text-align: left"><span>{{$p->room_number}}<i style="margin-left: 3px" class="fa-solid fa-bed"></i></span> <span style="margin-left: 5px">{{$p->bathroom_number}}<i style="margin-left: 3px" class="fa-solid fa-bath"></i>
                                     </span> <span style="margin-left: 5px">{{$p->area}}<span style="font-weight: 600">m <sup>2</sup></span> </span>
                                         </p>

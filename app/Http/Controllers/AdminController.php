@@ -78,24 +78,27 @@ class AdminController extends Controller
         }
         return view('vendor.adminlte.auth.login');
     }
+    /*
     public function register(){
         return view('vendor.adminlte.auth.register');
-    }
+    }*/
     public function loginPost(Request $request){
+
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials,$request->remember)) {
+        if (Auth::attempt($credentials)) {
+
             return redirect()->intended(route('dashboard'));
         }
         else{
             return redirect(route('login'));
         }
     }
-    public function registerPost(Request $request){
+    /*public function registerPost(Request $request){
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:teams',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|min:6',
         ]);
@@ -105,7 +108,7 @@ class AdminController extends Controller
         $this->userService->register($data);
 
         return redirect(route('dashboard'))->withSuccess(__('registered'));
-    }
+    }*/
     public function dashboard(){
         return view('vendor.adminlte.page');
     }

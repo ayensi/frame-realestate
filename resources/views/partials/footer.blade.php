@@ -74,7 +74,7 @@
                 © 2015 Tüm hakları saklıdır. FRAME Gayrimenkul &
                 Danışmanlık</p>
         </div>
-        <!-- end row -->
+        <!-- end row -->https://crealive.triobilgisayar.net/
     </div>
     <!-- end container -->
 </footer>
@@ -124,7 +124,7 @@
 <script src="{{asset("src/front-end(1).js")}}" id="nf-layout-front-end-js"></script>
 <script src="{{asset("src/swiper.min.js")}}" id="ta-testimonial-awesome-swiper-js"></script>
 
-<a id="ssttbutton"  class="" style="">
+<a id="ssttbutton" onclick="$('html, body').animate({scrollTop:0}, '500');" class="" style="">
         <span class="fa-stack fa-lg">
             <i class="ssttbutton-background fa fa-circle fa-stack-2x"></i>
             <i class="ssttbutton-symbol fa fa-arrow-up fa-stack-1x"></i>
@@ -136,10 +136,33 @@
 <script src="{{asset("js/instagramstory.js")}}">
 
 </script>
+<script src="https://www.starcity.com.tr/Site/assets/js/jquery.cookie.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
         integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+
+/*
+ $(document).ready(function () {
+      
+
+     var visited = $.cookie('visitedtr');
+       if (visited == 'yes') {
+           return false; 
+           console.log("cokkieture");
+       } else {
+           $( ".cookie-container" ).hide();
+           console.log("falsecokkie");
+            $.cookie('visitedtr', 'yes', { expires: 7 });
+        }
+    
+  
+    
+    });*/
+   
+
+
     const tl = gsap.timeline({ defaults: { duration: 0.75 } });
 
     tl.fromTo(".cookie-container", { scale: 0 }, { scale: 1 });
@@ -207,3 +230,32 @@
 
 </script>
 <div class="elfsight-app-9fa197c3-3976-4956-b703-8c76809e9abf"></div>
+<style type="text/css">
+
+       .bodrumbutton{
+            margin-top: 10px!important;
+        }
+
+        .facilities{
+            display:block!important
+        }
+@media  screen and (max-width: 782px) {
+        .section-titles h2 {
+        margin-bottom: 0!important
+}
+
+	.hidden-xs{
+		display: none!important
+	}
+	.facilities .search form{
+			flex-direction: column;
+
+	}
+	.facilities .search form .price{
+		width: 100%!important;
+	}
+	.facilities .search form input,.facilities .search form select {
+    margin-bottom: 15px;
+	}
+}
+</style>

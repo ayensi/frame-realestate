@@ -6,22 +6,18 @@
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
 @php( $loginPost_url = View::getSection('loginPost_url') ?? config('adminlte.loginPost_url', 'loginPost') )
-@php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register') )
-@php( $registerPost_url = View::getSection('registerPost_url') ?? config('adminlte.registerPost_url', 'registerPost') )
 
 
 @if (config('adminlte.use_route_url', false))
     @php( $login_url = $login_url ? route($login_url) : '' )
-    @php( $register_url = $register_url ? route($register_url) : '' )
+
 
     @php( $loginPost_url = $loginPost_url ? route($loginPost_url) : '' )
-    @php( $registerPost_url = $registerPost_url ? route($registerPost_url) : '' )
+
 
 @else
     @php( $login_url = $login_url ? url($login_url) : '' )
     @php( $loginPost_url = $loginPost_url ? url($loginPost_url) : '' )
-    @php( $register_url = $register_url ? url($register_url) : '' )
-    @php( $registerPost_url = $registerPost_url ? url($registerPost_url) : '' )
 
 @endif
 
@@ -93,11 +89,4 @@
 @section('auth_footer')
     {{-- Password reset link --}}
     {{-- Register link --}}
-    @if($register_url)
-        <p class="my-0">
-            <a href="{{ $register_url }}">
-                {{ __('adminlte::adminlte.register_a_new_membership') }}
-            </a>
-        </p>
-    @endif
 @stop

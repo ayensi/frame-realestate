@@ -45,6 +45,63 @@ class PropertyRepository
         return $property;
     }
 
+    public function update($dataTr,$dataEn){
+
+        if($dataTr)
+            Property::updateOrCreate(['ad_number' => $dataTr['ad_number'],'language_id' => 2],$dataTr);
+        if($dataEn)
+            Property::updateOrCreate(['ad_number' => $dataTr['ad_number'],'language_id' => 4],$dataEn);
+
+        $propertyTr = Property::where('ad_number',$dataTr['ad_number'])->where('language_id',2)->get();
+        $propertyEn = Property::where('ad_number',$dataTr['ad_number'])->where('language_id',4)->get();
+
+
+
+        if($dataTr['team_id'])
+            $team = $this->crudRepository->findOne(Team::class,$dataTr['team_id']);
+        if($dataTr['category_id'])
+            $category = $this->crudRepository->findOne(Category::class,$dataTr['category_id']);
+        if($dataTr['property_status'])
+            $property_status = $this->crudRepository->findOne(PropertyStatus::class,$dataTr['property_status']);
+        if($dataTr['estate_type'])
+            $estate_type = $this->crudRepository->findOne(EstateType::class,$dataTr['estate_type']);
+        if($dataTr['district_id'])
+            $district = $this->crudRepository->findOne(District::class,$dataTr['district_id']);
+        if($dataTr['city_id'])
+            $city = $this->crudRepository->findOne(City::class,$dataTr['city_id']);
+
+        if(count($propertyTr)>0){
+            if($team)
+                $propertyTr[0]->team()->associate($team);
+            if($category)
+                $propertyTr[0]->category()->associate($category);
+            if($property_status)
+                $propertyTr[0]->propertyStatus()->associate($property_status);
+            if($estate_type)
+                $propertyTr[0]->estateType()->associate($estate_type);
+            if($district)
+                $propertyTr[0]->district()->associate($district);
+            if($city)
+                $propertyTr[0]->city()->associate($city);
+        }
+        if(count($propertyEn)>0){
+            if($team)
+                $propertyEn[0]->team()->associate($team);
+            if($category)
+                $propertyEn[0]->category()->associate($category);
+            if($property_status)
+                $propertyEn[0]->propertyStatus()->associate($property_status);
+            if($estate_type)
+                $propertyEn[0]->estateType()->associate($estate_type);
+            if($district)
+                $propertyEn[0]->district()->associate($district);
+            if($city)
+                $propertyEn[0]->city()->associate($city);
+        }
+
+        return $propertyTr;
+    }
+
     public function findAllWithLanguageId($lId){
         return Property::where('language_id',$lId)->get();
     }

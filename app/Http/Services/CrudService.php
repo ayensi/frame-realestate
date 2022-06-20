@@ -63,4 +63,14 @@ class CrudService implements ICrudService
     {
         return $this->crudRepository->withCityId($model,$city_id);
     }
+
+    public function withId($model, $id)
+    {
+        return $this->crudRepository->withId($model,$id);
+    }
+
+    public function withLanguageId($model, $id, $lId)
+    {
+        return $this->crudRepository->withLanguageId($model,$id,$lId);
+    }
 }

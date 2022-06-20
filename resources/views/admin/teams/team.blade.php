@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <div class="container">
+    <div style="padding: 15px">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -119,13 +119,29 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>İsim</label>
-                            <input name="name" type="text" class="form-control">
+                            <input type="file" name="image" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Kısaltma</label>
-                            <input name="slug" type="text" class="form-control">
+                            <label>İsim</label>
+                            <input name="name" type="text" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <label>Etiket</label>
+                            <input name="tag" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobil</label>
+                            <input name="mobile" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ofis</label>
+                            <input name="office" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="email" type="email" class="form-control" required>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id" id="idToUpdate">

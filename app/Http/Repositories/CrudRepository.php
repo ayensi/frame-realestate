@@ -38,10 +38,17 @@ class CrudRepository
     }
 
     public function paginateAll($model,$count,$id){
-        return $model::where('team_id',$id)->paginate($count);
+        return $model::groupBy('ad_number')->where('team_id',$id)->paginate($count);
     }
 
     public function withCityId($model,$city_id){
         return $model::where('city_id',$city_id)->get();
+    }
+
+    public function withId($model,$id){
+        return $model::where('id',$id)->get();
+    }
+    public function withLanguageId($model,$id,$lId){
+        return $model::where('ad_number',$id)->where('language_id',$lId)->get();
     }
 }
